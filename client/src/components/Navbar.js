@@ -1,14 +1,14 @@
 import React from 'react';
-import NavLink from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export default function NavBar() {
 
   return (
     <header className='navbar__wrapper'>
-      <div className='navbar__logo'/>
+      <NavLink to='/' className='navbar__logo'></NavLink>
       <div className='navbar__links'>
-        <NavLink  to='/login'></NavLink>
-        <NavLink  to='/login'></NavLink>
+        <NavLink className='navbar__links-navlink' to='/login'>Login</NavLink>
+        <NavLink className='navbar__links-navlink' to='/signup'>Sign Up</NavLink>
       </div>
     </header>
   )
