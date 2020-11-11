@@ -53,10 +53,8 @@ function Login() {
               <div>
                 <button type='submit' className='loginContainer__loginButton'>Log in</button>
               </div>
-              <button className='loginContainer__loginButton' onClick={demo}>Demo Log in</button>
             </form>
             <div id='redirect'>
-              New to Kickstarter? <Link to="/signup" style={{ textDecoration: 'none', color: 'blue', fontWeight: 'bold' }} > Sign up </Link>
             </div>
           </div>
         </div>
