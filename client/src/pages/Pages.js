@@ -10,10 +10,9 @@ import NavBar from '../components/Navbar'
 export default function Pages() {
   return (
     <>
-      <header>
-        <NavBar></NavBar>
-      </header>
+      <NavBar/>
       <Route exact path="/" component={HomePage} />
+      {/* <Route exact path="/dashboard" component={Dashboard}/> */}
       <Auth />
     </>
   )
