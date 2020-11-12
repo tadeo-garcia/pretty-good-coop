@@ -41,7 +41,7 @@
   border-width: 1px;
 }
 .signupContainer__form-input:focus {
-  box-shadow: 0 0 0 1px #009e74;
+  box-shadow: 0 0 0 1px #2d2d2d;
   outline: 0;
 }
 .signupContainer__form-bad-input {
