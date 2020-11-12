@@ -10,7 +10,7 @@ export default function Product({url,description,price}){
         <img src={url} className="productImage"/>
         <h3>{description}</h3>
         <h3>{price}</h3>
-        <a href='#'>Add To Cart</a>
+        <a href='#' className="productImage__link productImage__link-animate">Add To Cart</a>
       </div>
     </>
   )
