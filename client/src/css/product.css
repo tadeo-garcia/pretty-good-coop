@@ -1,0 +1,32 @@
+.productWrapper {
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.productImage {
+  height: 400px;
+  width: 400;
+}
+
+.productWrapper:hover .productImage__link-animate {
+  bottom: 50px;
+  opacity: 1;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.productImage__link {
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  color: white;
+  opacity: 0;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+}
