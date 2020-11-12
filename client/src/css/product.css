@@ -1,0 +1,12 @@
+.productWrapper {
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+  /* width: 800px; */
+}
+
+.productImage {
+  height: 400px;
+  width: 400;
+}

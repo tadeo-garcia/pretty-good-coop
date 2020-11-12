@@ -8,7 +8,7 @@ export default function NavBar() {
       <div className='navbarContainer__links'>
         <NavLink className='navbarContainer__links-navlink' to='/login'>Login</NavLink>
         <NavLink className='navbarContainer__links-navlink' to='/signup'>Sign Up</NavLink>
-        <NavLink className='navbarContainer__links-navlink' to='/signup'>Cart</NavLink>
+        <NavLink className='navbarContainer__links-navlink' to='/signup'><i className="fas fa-shopping-cart"/></NavLink>
       </div>
       <NavLink to='/' className='navbarContainer__logo'></NavLink>
     </header>
