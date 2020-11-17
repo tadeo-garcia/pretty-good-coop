@@ -1,11 +1,13 @@
 import React from 'react';
-import Product from "./Product";
 import buhkTeeBlack from "../products/buhk_t_1.jpg";
 import buhkTeeWhite from "../products/buhk_t_2.jpg";
 import buhkCanvas1 from "../products/buhk_canvas1.jpg"
 import buhkCanvas2 from "../products/buhk_canvas2.jpg"
 
-export default function Store(){
+import Product from "./Product";
+
+
+export default function ProductDisplay(){
   return(
     <>
       <div className="storeWrapper">
