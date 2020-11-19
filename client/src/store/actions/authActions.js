@@ -69,6 +69,7 @@ export const logout = () => {
       headers: { },
     })
     if (res.ok) {
+      console.log('im loggin out chief')
       dispatch(logoutUser());
     }
     return res;

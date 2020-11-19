@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup } from '../store/auth';
+import { signup } from '../store/actions/authActions';
 import { Redirect, Link } from 'react-router-dom';
 
 let emailDiv = "signupContainer__form-input";

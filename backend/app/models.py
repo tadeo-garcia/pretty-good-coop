@@ -33,3 +33,4 @@ class User(db.Model, UserMixin):
       "email": self.email,
       "created_at": self.created_at.strftime("%B %Y")
     }
+

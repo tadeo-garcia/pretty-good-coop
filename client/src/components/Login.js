@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../store/auth';
+import { login } from '../store/actions/authActions';
 import { Redirect, Link } from 'react-router-dom';
 
 function Login() {
@@ -32,7 +32,9 @@ function Login() {
     e.preventDefault();
     dispatch(login('demo@moneypit.com', 'password'))
   };
+
   if (currentUserId) return <Redirect to='/' />
+
   return (
     <>
       <div className='loginWrapper'>
@@ -61,3 +63,6 @@ function Login() {
   )
 }
 export default Login;
+
+
+{/* <NavLink className='navbarContainer__links-navlink' to='/signup'>Sign Up</NavLink> */}
