@@ -53,6 +53,7 @@ function Login() {
               <span style={{ color: 'red' }}>{noPassword}</span>
               <div>
                 <button type='submit' className='loginContainer__loginButton'>Log in</button>
+                <Link className='loginContainer__loginButton' to='/signup'>Sign up</Link>
               </div>
             </form>
             <div id='redirect'>

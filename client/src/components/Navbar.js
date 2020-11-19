@@ -18,14 +18,14 @@ export default function NavBar() {
     <header className='navbarContainer'>
       <div className='navbarContainer__links'>
         {currentUserId ? (
-          <NavLink className='navbarContainer__links-navlink' to='/login'>Login</NavLink>
-          
-        ):(
         <>
           <NavLink className='navbarContainer__links-navlink' to='/signup'><i className="fas fa-shopping-cart"/></NavLink>
           <NavLink className='navbarContainer__links-navlink' 
           onClick={handleLogout} to='/'> Logout</NavLink>
           </>
+          
+          ):(
+            <NavLink className='navbarContainer__links-navlink' to='/login'>Login</NavLink>
         )}
       </div>
       <NavLink to='/' className='navbarContainer__logo'></NavLink>

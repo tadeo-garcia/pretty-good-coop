@@ -9,24 +9,15 @@ with app.app_context():
     db.create_all()
 
 # USERS
-    ian = User(username='Ian', email='ian@aa.io', password='password')
-    javier = User(username='Javier', email='javier@aa.io', password='password')
-    dean = User(username='Dean', email='dean@aa.io', password='password')
-    angela = User(username='Angela', email='angela@aa.io', password='password')
-    soonmi = User(username='Soon-Mi', email='soonmi@aa.io',
-                  password='password')
-    alissa = User(username='Alissa', email='alissa@aa.io', password='password')
-    demo = User(id=555, username='Demo',
+    ian = User(email='ian@aa.io', password='password')
+    javier = User(email='javier@aa.io', password='password')
+    demo = User(id=555,
                 email='demo@demo.com', password='password')
-    admin = User(id=666, username='Admin', password='password',
+    admin = User(id=666,password='password',
                  email='admin@prettygoodcoop.com')
 
     db.session.add(ian)
     db.session.add(javier)
-    db.session.add(dean)
-    db.session.add(angela)
-    db.session.add(soonmi)
-    db.session.add(alissa)
     db.session.add(demo)
     db.session.add(admin)
 
