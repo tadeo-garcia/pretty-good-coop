@@ -17,7 +17,9 @@ with app.app_context():
                   password='password')
     alissa = User(username='Alissa', email='alissa@aa.io', password='password')
     demo = User(id=555, username='Demo',
-                email='demo@moneypit.com', password='password')
+                email='demo@demo.com', password='password')
+    admin = User(id=666, username='Admin', password='password',
+                 email='admin@prettygoodcoop.com')
 
     db.session.add(ian)
     db.session.add(javier)
@@ -25,5 +27,7 @@ with app.app_context():
     db.session.add(angela)
     db.session.add(soonmi)
     db.session.add(alissa)
+    db.session.add(demo)
+    db.session.add(admin)
 
     db.session.commit()
