@@ -10,7 +10,6 @@ user_routes = Blueprint('users', __name__)
 def signup_user():
     try:
         user = User(
-            username=request.json.get('username', None),
             email=request.json.get('email', None),
             password=request.json.get('password', None)
         )
