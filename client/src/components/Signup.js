@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../store/actions/authActions';
 import { Redirect, Link } from 'react-router-dom';
 
@@ -8,6 +8,8 @@ let passwordDiv = "signupContainer__form-input";
 
 function Signup() {
   const dispatch = useDispatch();
+  const currentUserId = useSelector(state => state.auth.id);
+
 
   const [email, setEmail] = useState('');
   const [emailTwo, setEmailTwo] = useState('');
@@ -27,6 +29,7 @@ function Signup() {
     setNoInfo('');
 
     if ((email === emailTwo) && (password === passwordTwo) && (email !== "")) {
+      console.log(email, password)
       dispatch(signup(email.toLocaleLowerCase(), password));
     } else if (email === emailTwo === password === passwordTwo === "") {
       emailDiv = "signupContainer__form-bad-input";
@@ -41,6 +44,8 @@ function Signup() {
       setNoEmail("Please make sure email fields match.")
     }
   }
+
+  if (currentUserId) return <Redirect to='/' />
 
   return (
     <>

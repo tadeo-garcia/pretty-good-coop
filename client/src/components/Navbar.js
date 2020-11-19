@@ -12,7 +12,6 @@ export default function NavBar() {
     dispatch(logout());
   };
 
-  console.log(currentUserId)
 
   return (
     <header className='navbarContainer'>
