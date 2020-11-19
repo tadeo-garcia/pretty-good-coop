@@ -12,7 +12,8 @@ export default function Admin(){
         <div className="admin__content">
           <div className="admin__content-leftnav">
             <div className="admin__content-links">
-              <Link to='/admin/addproduct'>Add Product</Link>
+              <Link className="admin__content-link" to='/admin/addproduct'>Add Product</Link>
+              <Link className="admin__content-link" to='/admin/editproduct/:id'>Edit Product</Link>
             </div>
           </div>
           <div className="admin__content-right" ref={contentRef}>

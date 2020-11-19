@@ -1,0 +1,22 @@
+.addProductWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addProduct__form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  position: absolute;
+  margin-top: 75px;
+}
+
+.addProduct__form-input {
+  margin-top: 10px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+}
