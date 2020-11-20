@@ -16,18 +16,15 @@ const handleProfileImage = (e) => {
   });
 };
 
-useEffect(()=>{
-  if(!productImage){
-    setPreviewImage(undefined)
-    return
+const previewHandler = (e) => {
+  const reader = new FileReader();
+  reader.onload = () => {
+    if(reader.readyState === 2){
+      setPreviewImage(reader.result)
+    }
   }
-
-  // const imageUrl = URL.createObjectURL(productImage)
-  console.log(productImage)
-  // setPreviewImage(imageUrl)
-
-  // return () => URL.revokeObjectURL(imageUrl)
-},[productImage])
+  reader.readAsDataURL(e.target.files[0])
+}
 
   return(
     <div className="addProductWrapper">
@@ -44,12 +41,13 @@ useEffect(()=>{
           <label htmlFor='fileUpload' className='addProduct__form-file'> 
             Choose File
             <input id='fileUpload' className="addProduct__form-input" 
-            type="file" title=' ' onChange={handleProfileImage}/>
+            type="file" title=' ' onChange={previewHandler}/>
           </label>
         </div>
         <input type="submit" className="addProduct__form-file"/>
       </form>
       <div className="addProduct__imagepreview">
+        <img src={previewImage} alt='' className='addProduct__imagepreview'/>
         <span>Image Preview</span>
       </div>
     </div>

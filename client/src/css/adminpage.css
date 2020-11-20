@@ -27,6 +27,11 @@
 .admin__content-link {
   margin-bottom: 15px;
   text-decoration: none;
+  color: black;
+}
+
+.admin__content-link:hover {
+  text-decoration: underline;
 }
 
 .admin__content-right {
