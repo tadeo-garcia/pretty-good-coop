@@ -32,3 +32,14 @@ class User(db.Model, UserMixin):
       "created_at": self.created_at.strftime("%B %Y")
     }
 
+class Product(db.Model, UserMixin):
+  __tablename__ = 'products'
+
+  id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String(100), nullable=False)
+  description = db.Column(db.String(), nullable=False)
+  price = db.Column(db.Float, nullable=False)
+  releaseDate = db.Column(db.DateTime, nullable=False)
+  imageUrl = db.Column(db.String(), nullable=False)
+  created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
+  updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
