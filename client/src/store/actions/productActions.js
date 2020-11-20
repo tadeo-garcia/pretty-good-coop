@@ -1,3 +1,6 @@
+import axios from "axios";
+import Cookies from "js-cookie";
+
 import {
   LOAD_PRODUCT,
   LOAD_PRODUCTS,
@@ -27,7 +30,7 @@ export const postProduct = (product) => {
   }
 }
 
-export const deleteProduct = (productId) => {
+export const removeProduct = (productId) => {
   return {
     type: DELETE_PRODUCT,
     productId
@@ -35,3 +38,64 @@ export const deleteProduct = (productId) => {
 }
 
 //////////////THUNKS/////////////////////
+
+export const loadProduct = (id) => {
+  return async (dispatch) => {
+    const res = await fetch(`/api/products/${id}`)
+    let data = await res.json();
+    if(res.ok){
+      dispatch(getProduct(data.product))
+    }
+    return res;
+  }
+}
+
+export const loadProducts = () => {
+  return async (dispatch) => {
+    const res = await fetch(`api/products`)
+    let data = await res.json();
+    if(res.ok){
+      dispatch(getProducts(data.products))
+    }
+    return res;
+  }
+}
+
+export const uploadProduct = (title, description, price, releaseDate, file) =>{
+  let formData = new FormData();
+
+  formData.append("tite", title);
+  formData.append("description", description);
+  formData.append("price", price);
+  formData.append("releaseDate", releaseDate);
+  formData.append("file", file);
+  let config = {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  }
+  return async (dispatch) => {
+    const res = await axios.put("/api/products/add", formData, config);
+    let product = res.data.product;
+    if(product){
+      dispatch(postProduct(product))
+    }
+    return res;
+  }
+}
+
+export const deleteProduct = (id) => {
+  return async (dispatch) => {
+    const res = await fetch(`/api/producs/${id}`, {
+      method: "DELETE",
+      headers:{
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
+      }
+    });
+    let data = await res.json();
+    if(!res.ok) throw res;
+    if(res.ok){
+      dispatch(removeProduct(id))
+    }
+  }
+}
