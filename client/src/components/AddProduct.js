@@ -20,10 +20,14 @@ const previewHandler = (e) => {
   const reader = new FileReader();
   reader.onload = () => {
     if(reader.readyState === 2){
-      setPreviewImage(reader.result)
+      setPreviewImage(reader.result);
     }
   }
-  reader.readAsDataURL(e.target.files[0])
+  reader.readAsDataURL(e.target.files[0]);
+}
+
+const removePreview = () => {
+  setPreviewImage(null);
 }
 
   return(
@@ -45,10 +49,14 @@ const previewHandler = (e) => {
           </label>
         </div>
         <input type="submit" className="addProduct__form-file"/>
+        <button className="addProduct__form-file" onClick={removePreview}>Remove</button>
       </form>
-      <div className="addProduct__imagepreview">
-        <img src={previewImage} alt='' className='addProduct__imagepreview'/>
+      <div className="addProduct__preview-div">
+        {previewImage?(
+          <img src={previewImage} alt='' className='addProduct__imagepreview'/>
+        ):(
         <span>Image Preview</span>
+        )}
       </div>
     </div>
   )
