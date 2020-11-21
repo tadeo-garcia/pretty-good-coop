@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
-
+import {useDispatch} from 'react-redux';
+import {uploadProduct} from '../store/actions/productActions';
+import {useHistory} from 'react-router-dom';
 
 export default function AddProduct(){
 const [title, setTitle] = useState('');
@@ -9,6 +11,8 @@ const [previewImage, setPreviewImage] = useState(null);
 const [price, setPrice] = useState(null);
 const [releaseDate, setReleaseDate] = useState(null);
 // const [sizes, setSizes] = useState(null);
+const dispatch = useDispatch();
+const history = useHistory();
 
 const handleImage = (e) => {
   setProductImage({
@@ -29,11 +33,10 @@ const removePreview = () => {
 }
 
 const handleSubmit = () => {
-  console.log(title)
-  console.log(description)
-  console.log(productImage)
-  console.log(price)
-  console.log(releaseDate)
+  if(title && description && productImage && price && releaseDate){
+    dispatch(uploadProduct(title, description, productImage, price, releaseDate))
+    history.push('/admin')
+  }
 }
 
   return(
