@@ -1,10 +1,10 @@
-.storeWrapper {
+.displayWrapper {
   width: 100%;
-  height: 100%;
+  height: 85%;
   /* border: 1px solid black; */
 }
 
-.storeBanner {
+.displayBanner {
   height: 150px;
   width: 100%;
   background-image: url("https://i.imgur.com/IQj1Pll.jpg");
@@ -12,7 +12,7 @@
   background-position: center;
 }
 
-.storeGrid {
+.displayGrid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

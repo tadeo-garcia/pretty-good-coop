@@ -10,9 +10,9 @@ import Product from "./Product";
 export default function ProductDisplay(){
   return(
     <>
-      <div className="storeWrapper">
-        <div className="storeBanner"/>
-        <div className="storeGrid">
+      <div className="displayWrapper">
+        <div className="displayBanner"/>
+        <div className="displayGrid">
           <Product url={buhkTeeBlack} description={'blackshirt'} price={'25.00'} ></Product>
           <Product url={buhkTeeWhite} description={'whiteshirt'} price={'25.00'} ></Product>
           <Product url={buhkCanvas1} description={'set of canvas'} price={'100.00'} ></Product>

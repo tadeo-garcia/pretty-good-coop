@@ -11,8 +11,6 @@ export default function Dashboard(){
         <div id="dashboard__content">
             <Switch>
               <Route exact path="/dashboard" component={ProductDisplay} />
-              {/* <Route exact path="/dashboard/profile" 
-              component={Profile} /> */}
             </Switch>
           </div>
       </div>

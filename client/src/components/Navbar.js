@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {logout} from '../store/actions/authActions'
 
 export default function NavBar() {
+  const [admin, setAdmin] = useState({display: 'inline'})
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
 
@@ -12,13 +13,21 @@ export default function NavBar() {
     dispatch(logout());
   };
 
+  // if(currentUserId===666){
+  //   setAdmin({display:'none'})
+  // }
 
   return (
     <header className='navbarContainer'>
       <div className='navbarContainer__links'>
+        {currentUserId === 666 ? (
+          <NavLink className='navbarContainer__links-navlink' to='/admin'>Admin</NavLink>
+        ):(
+          null
+        )}
         {currentUserId ? (
         <>
-          <NavLink className='navbarContainer__links-navlink' to='/signup'><i className="fas fa-shopping-cart"/></NavLink>
+          <NavLink className='navbarContainer__links-navlink' to='/signup'><i className="fas fa-shopping-cart" style={admin}/></NavLink>
           <NavLink className='navbarContainer__links-navlink' 
           onClick={handleLogout} to='/'> Logout</NavLink>
           </>
@@ -31,3 +40,4 @@ export default function NavBar() {
     </header>
   )
 }
+
