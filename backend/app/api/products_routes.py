@@ -28,6 +28,7 @@ def upload_product():
       price = request.form.get('price', None),
       releaseDate = request.form.get('releaseDate', None)
     )
+    file = request.files['file'] or None
     if file == None:
         return jsonify({"error": "file is required for upload"})
     file.filename = secure_filename(file.filename)

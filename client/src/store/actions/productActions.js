@@ -61,14 +61,14 @@ export const loadProducts = () => {
   }
 }
 
-export const uploadProduct = (title, description, price, releaseDate, productImage) =>{
+export const uploadProduct = (title, description, price, releaseDate, file) =>{
   let formData = new FormData();
 
   formData.append("title", title);
   formData.append("description", description);
   formData.append("price", price);
   formData.append("releaseDate", releaseDate);
-  formData.append("file", productImage);
+  formData.append("file", file.raw);
   let config = {
     headers: {
       "Content-Type": "multipart/form-data"
