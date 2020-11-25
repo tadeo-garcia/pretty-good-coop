@@ -34,7 +34,7 @@ const removePreview = () => {
 
 const handleSubmit = () => {
   if(title && description && productImage && price && releaseDate){
-    dispatch(uploadProduct(title, description, productImage, price, releaseDate))
+    dispatch(uploadProduct(title, description, price, releaseDate, productImage))
     history.push('/admin')
   }
 }

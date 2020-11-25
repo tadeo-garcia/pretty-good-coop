@@ -61,14 +61,14 @@ export const loadProducts = () => {
   }
 }
 
-export const uploadProduct = (title, description, price, releaseDate, productImage) =>{
+export const uploadProduct = (title, description, price, releaseDate, file) =>{
   let formData = new FormData();
 
-  formData.append("tite", title);
+  formData.append("title", title);
   formData.append("description", description);
   formData.append("price", price);
   formData.append("releaseDate", releaseDate);
-  formData.append("file", productImage);
+  formData.append("file", file.raw);
   let config = {
     headers: {
       "Content-Type": "multipart/form-data"
@@ -78,7 +78,8 @@ export const uploadProduct = (title, description, price, releaseDate, productIma
     const res = await axios.put("/api/products/add", formData, config);
     let product = res.data.product;
     if(product){
-      dispatch(postProduct(product))
+      // dispatch(postProduct(product))
+      console.log(product)
     }
     return res;
   }

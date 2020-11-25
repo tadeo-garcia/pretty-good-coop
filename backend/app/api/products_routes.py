@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, redirect, url_for, session, request
-from app.models import User, db
+from app.models import Product, db
 from flask_jwt_extended import create_access_token, jwt_required
 from werkzeug.utils import secure_filename
 from flask_login import current_user
@@ -22,29 +22,29 @@ s3 = boto3.client('s3',
 
 @product_routes.route('/add', methods=['GET', 'PUT'])
 def upload_product():
-    if request.method == 'PUT':
-        product = Product (
-          description = request.json.get('description', None),
-          title = request.json.get('title', None),
-          price = request.json.get('price', None),
-          releaseDate = request.json.get('releaseDate', None)
-        )
-        if file == None:
-            return jsonify({"error": "file is required for upload"})
-        file.filename = secure_filename(file.filename)
-        folder = f'products/'
-        file_path = folder + file.filename
-        s3.upload_fileobj(
-            file, 
-            BUCKET_NAME, 
-            file_path, 
-            ExtraArgs = {
-              "ContentType": file.content_type, 
-              "ACL": "public-read"})
-        external_link = f'{BUCKET_URL}/{folder}{file.filename}'
-        if external_link:
-            product.urlImage = external_link
-            db.session.add(product)
-            db.session.commit()
-            return {"product": user.to_dict(), "msg": "product uploaded successfully"}
+    product = Product (
+      title = request.form.get('title', None),
+      description = request.form.get('description', None),
+      price = request.form.get('price', None),
+      releaseDate = request.form.get('releaseDate', None)
+    )
+    file = request.files['file'] or None
+    if file == None:
+        return jsonify({"error": "file is required for upload"})
+    file.filename = secure_filename(file.filename)
+    folder = f'products/'
+    file_path = folder + file.filename
+    s3.upload_fileobj(
+        file, 
+        BUCKET_NAME, 
+        file_path, 
+        ExtraArgs = {
+          "ContentType": file.content_type, 
+          "ACL": "public-read"})
+    external_link = f'{BUCKET_URL}/{folder}{file.filename}'
+    if external_link:
+        product.imageUrl = external_link
+        db.session.add(product)
+        db.session.commit()
+        return {"product": product.to_dict(), "msg": "product uploaded successfully"}
 
