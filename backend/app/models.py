@@ -43,3 +43,14 @@ class Product(db.Model, UserMixin):
   imageUrl = db.Column(db.String(), nullable=False)
   created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
   updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "title": self.title,
+      "description": self.description,
+      "price": self.price,
+      "releaseDate": self.releaseDate,
+      "imageUrl": self.imageUrl,
+      "created_at": self.created_at.strftime("%B %Y")
+    }
