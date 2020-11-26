@@ -1,6 +1,10 @@
 .adminProductWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-right: 20px;
   margin-left: 20px;
+  width: 300px;
   position: relative;
   overflow: hidden;
   margin-bottom: 25px;
