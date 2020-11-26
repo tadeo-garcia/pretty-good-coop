@@ -2,6 +2,7 @@ import React, {useState, useRef} from "react";
 import { useSelector } from "react-redux";
 import { Link, Switch, Route } from "react-router-dom";
 import AddProduct from '../components/AddProduct';
+import ProductDisplay from '../components/ProductDisplay';
 
 export default function Admin(){
   const contentRef = useRef();
@@ -30,6 +31,7 @@ export default function Admin(){
           <div className="admin__content-right" ref={contentRef}>
             <Switch>
                 <Route exact path='/admin/addproduct' component={AddProduct}/>
+                <Route exact path='/admin/viewproducts' component={ProductDisplay}/>
             </Switch>
           </div>
         </div>

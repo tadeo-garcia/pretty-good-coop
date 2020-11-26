@@ -52,10 +52,11 @@ export const loadProduct = (id) => {
 
 export const loadProducts = () => {
   return async (dispatch) => {
-    const res = await fetch(`api/products`)
+    const res = await fetch(`/api/products/`)
     let data = await res.json();
     if(res.ok){
       dispatch(getProducts(data.products))
+      console.log(data.products)
     }
     return res;
   }
@@ -78,8 +79,8 @@ export const uploadProduct = (title, description, price, releaseDate, file) =>{
     const res = await axios.put("/api/products/add", formData, config);
     let product = res.data.product;
     if(product){
-      // dispatch(postProduct(product))
-      console.log(product)
+      dispatch(postProduct(product))
+      // console.log(product)
     }
     return res;
   }

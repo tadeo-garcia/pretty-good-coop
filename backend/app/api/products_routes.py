@@ -6,7 +6,7 @@ from flask_login import current_user
 import boto3
 import os
 
-product_routes = Blueprint('product', __name__)
+product_routes = Blueprint('products', __name__)
 
 BUCKET_URL = os.environ.get('BUCKET_URL')
 BUCKET_NAME = os.environ.get('BUCKET_NAME')
@@ -18,12 +18,12 @@ s3 = boto3.client('s3',
                   region_name=REGION_NAME,
                   aws_access_key_id=ACCESS_ID,
                   aws_secret_access_key=ACCESS_KEY)
+
 @product_routes.route('/', methods=['GET'])
 def load_products():
     products = Product.query.all()
     data = [product.to_dict() for product in products]
     return {"products": data}
-
 
 @product_routes.route('/add', methods=['PUT'])
 def upload_product():

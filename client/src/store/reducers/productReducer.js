@@ -9,13 +9,13 @@ import {
 export default function productsReducer(state = {}, action) {
   switch (action.type) {
     case LOAD_PRODUCTS:
-      return { ...state, list: action.photos };
+      return { ...state, list: action.products};
     case LOAD_PRODUCT:
-      return { ...state, single: action.photo };
+      return { ...state, single: action.product };
     case DELETE_PRODUCT:
-      return state.users.filter((data, i) => i !== action.photoId - 1);
+      return state.users.filter((data, i) => i !== action.productId - 1);
     case ADD_PRODUCT:
-      return { ...state, ...action.newPhoto };
+      return { ...state, ...action.newProduct };
     default:
       return state;
   }
