@@ -1,24 +1,44 @@
-import React from 'react';
-import buhkTeeBlack from "../products/buhk_t_1.jpg";
-import buhkTeeWhite from "../products/buhk_t_2.jpg";
-import buhkCanvas1 from "../products/buhk_canvas1.jpg"
-import buhkCanvas2 from "../products/buhk_canvas2.jpg"
+import React, { useEffect } from 'react';
+import { useSelector,  useDispatch } from 'react-redux';
+import { loadProducts } from '../store/actions/productActions';
+
 
 import Product from "./Product";
+import AdminProduct from "./AdminProduct";
 
 
 export default function ProductDisplay(){
+  const dispatch = useDispatch();
+  const currentUserId = useSelector(state => state.auth.id);
+  const products = useSelector(state=>state.products.list)
+  let adminDisplay = false;
+
+  useEffect(()=>{
+    dispatch(loadProducts());
+  }, [dispatch])
+
+  if(currentUserId === 666){
+    adminDisplay = true
+  }
+  if(!products)return null;
   return(
     <>
+    {adminDisplay ? (
+      <div className="displayGrid__admin">
+        {products.map((product, idx) =>{
+          return(
+            <AdminProduct product={product}/>
+          )
+        })}
+      </div>
+    ):(
       <div className="displayWrapper">
         <div className="displayBanner"/>
         <div className="displayGrid">
-          <Product url={buhkTeeBlack} description={'blackshirt'} price={'25.00'} ></Product>
-          <Product url={buhkTeeWhite} description={'whiteshirt'} price={'25.00'} ></Product>
-          <Product url={buhkCanvas1} description={'set of canvas'} price={'100.00'} ></Product>
-          <Product url={buhkCanvas2} description={'canvas blah blah'} price={'150.00'} ></Product>
+          this is the pleebs display
         </div>
       </div>
+    )}
     </>
   )
 }
