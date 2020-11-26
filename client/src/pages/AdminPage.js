@@ -17,9 +17,6 @@ export default function Admin(){
               <Link className="admin__content-link" to='/admin/addproduct'>
                 Add Product
               </Link>
-              <Link className="admin__content-link" to='/admin/editproduct/:id'>
-                Edit Product
-              </Link>
               <Link className="admin__content-link" to='/admin/viewproducts'>
                 View Products
               </Link>
