@@ -24,12 +24,10 @@ export default function ProductDisplay(){
   return(
     <>
     {adminDisplay ? (
-      <div className="displayGrid">
+      <div className="displayGrid__admin">
         {products.map((product, idx) =>{
           return(
-            <div>
-              {product.title}
-            </div>
+            <AdminProduct product={product}/>
           )
         })}
       </div>
