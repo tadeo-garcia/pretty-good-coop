@@ -29,11 +29,14 @@ export default function Admin(){
             </div>
           </div>
           <div className="admin__content-right" ref={contentRef}>
-            <Switch>
-                <Route exact path='/admin/addproduct' component={AddProduct}/>
-                <Route exact path='/admin/viewproducts' component={ProductDisplay}/>
-            </Switch>
-          </div>
+            <div className="displayWrapper">
+              <div className="displayBanner"/>
+                <Switch>
+                    <Route exact path='/admin/addproduct' component={AddProduct}/>
+                    <Route exact path='/admin/viewproducts' component={ProductDisplay}/>
+                </Switch>
+              </div>
+            </div>
         </div>
       </div>
     </>

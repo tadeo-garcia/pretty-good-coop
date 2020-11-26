@@ -10,6 +10,7 @@ import AdminProduct from "./AdminProduct";
 export default function ProductDisplay(){
   const dispatch = useDispatch();
   const currentUserId = useSelector(state => state.auth.id);
+  const products = useSelector(state=>state.products.list)
   let adminDisplay = false;
 
   useEffect(()=>{
@@ -19,14 +20,18 @@ export default function ProductDisplay(){
   if(currentUserId === 666){
     adminDisplay = true
   }
+  if(!products)return null;
   return(
     <>
     {adminDisplay ? (
-      <div className="displayWrapper">
-        <div className="displayBanner"/>
-        <div className="displayGrid">
-          this is the admin display
-        </div>
+      <div className="displayGrid">
+        {products.map((product, idx) =>{
+          return(
+            <div>
+              {product.title}
+            </div>
+          )
+        })}
       </div>
     ):(
       <div className="displayWrapper">
