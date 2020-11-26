@@ -7,8 +7,8 @@
 }
 
 .adminProductImage {
-  height: 400px;
-  width: 400;
+  height: 300px;
+  width: 300px;
 }
 
 .adminProductWrapper:hover .adminProductImage__link-animate {
