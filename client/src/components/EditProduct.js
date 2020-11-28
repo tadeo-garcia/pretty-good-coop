@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import {EditProduct} from '../store/actions/productActions';
+import {editProduct, loadProduct} from '../store/actions/productActions';
 import {useHistory} from 'react-router-dom';
 
 export default function EditProduct(){
@@ -13,6 +13,10 @@ const [releaseDate, setReleaseDate] = useState(null);
 // const [sizes, setSizes] = useState(null);
 const dispatch = useDispatch();
 const history = useHistory();
+
+// useEffect(()=>{
+//     dispatch()
+// })
 
 const handleImage = (e) => {
   setProductImage({
