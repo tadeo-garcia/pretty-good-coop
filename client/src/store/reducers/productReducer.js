@@ -12,7 +12,7 @@ export default function productsReducer(state = {}, action) {
     case LOAD_PRODUCTS:
       return action.products
     case LOAD_PRODUCT:
-      return { ...state, single: action.product };
+      return action.product
     case DELETE_PRODUCT:
       return state.users.filter((data, i) => i !== action.productId - 1);
     case ADD_PRODUCT:
