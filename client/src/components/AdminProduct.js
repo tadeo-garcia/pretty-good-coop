@@ -1,15 +1,16 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function AdminProduct(product){
-//  console.log(product.product.id)
+  let singleProduct = product.product;
+  
   return(
     <>
       <div className="adminProductWrapper">
-        <img src={product.product.imageUrl} className="adminProductImage"/>
-        <h3>{product.product.description}</h3>
-        <h3>{product.product.price}</h3>
-        <a onClick={()=><Redirect to={`/edit/${product.product.id}`}></Redirect>} href='#' className="adminProductImage__link adminProductImage__link-animate">edit</a>
+        <img src={singleProduct.imageUrl} className="adminProductImage"/>
+        <h3>{singleProduct.description}</h3>
+        <h3>{singleProduct.price}</h3>
+        <Link  to={`/admin/edit/${singleProduct.id}`} className="adminProductImage__link adminProductImage__link-animate">edit</Link>
       </div>
     </>
   )

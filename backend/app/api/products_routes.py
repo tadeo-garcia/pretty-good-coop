@@ -25,6 +25,13 @@ def load_products():
     data = [product.to_dict() for product in products]
     return {"products": data}
 
+@product_routes.route('/:id', methods=['GET'])
+def load_product():
+    productId = request.json.get('productId', None)
+    product = Product.query.filter_by(id=productId).first()
+    product is None
+    return {"product": product.to_dict()}
+
 @product_routes.route('/add', methods=['PUT'])
 def upload_product():
     product = Product (
@@ -53,3 +60,30 @@ def upload_product():
         db.session.commit()
         return {"product": product.to_dict(), "msg": "product uploaded successfully"}
 
+@product_routes.route('/edit/:id', methods=['PUT'])
+def edit_product():
+    product = Product (
+      title = request.form.get('title', None),
+      description = request.form.get('description', None),
+      price = request.form.get('price', None),
+      releaseDate = request.form.get('releaseDate', None)
+    )
+    file = request.files['file'] or None
+    if file == None:
+        return jsonify({"error": "file is required for upload"})
+    file.filename = secure_filename(file.filename)
+    folder = f'products/'
+    file_path = folder + file.filename
+    s3.upload_fileobj(
+        file, 
+        BUCKET_NAME, 
+        file_path, 
+        ExtraArgs = {
+          "ContentType": file.content_type, 
+          "ACL": "public-read"})
+    external_link = f'{BUCKET_URL}/{folder}{file.filename}'
+    if external_link:
+        product.imageUrl = external_link
+        db.session.add(product)
+        db.session.commit()
+        return {"product": product.to_dict(), "msg": "product uploaded successfully"}

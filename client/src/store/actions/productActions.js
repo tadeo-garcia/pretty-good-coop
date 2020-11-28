@@ -5,8 +5,10 @@ import {
   LOAD_PRODUCT,
   LOAD_PRODUCTS,
   ADD_PRODUCT,
+  EDIT_PRODUCT,
   DELETE_PRODUCT
 } from '../constants/productConstants';
+import EditProduct from "../../components/EditProduct";
 
 //////////////ACTIONS/////////////////////
 export const getProduct = (product) => {
@@ -26,6 +28,13 @@ export const getProducts = (products) => {
 export const postProduct = (product) => {
   return {
     type: ADD_PRODUCT,
+    product
+  }
+}
+
+export const modifyProduct = (product) => {
+  return {
+    type: EDIT_PRODUCT,
     product
   }
 }
@@ -85,6 +94,32 @@ export const uploadProduct = (title, description, price, releaseDate, file) =>{
     return res;
   }
 }
+
+export const editProduct = (id, title, description, price, releaseDate, file)=>{
+  let formData = new FormData();
+  
+  formData.append("productId", id)
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("price", price);
+  formData.append("releaseDate", releaseDate);
+  formData.append("file", file.raw);
+  let config = {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  }
+  return async (dispatch) => {
+    const res = await axios.put("/api/products/add", formData, config);
+    let product = res.data.product;
+    if(product){
+      dispatch(modifyProduct(product))
+      // console.log(product)
+    }
+    return res;
+  }
+}
+
 
 export const deleteProduct = (id) => {
   return async (dispatch) => {
