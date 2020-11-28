@@ -18,6 +18,8 @@ const history = useHistory();
 //     dispatch()
 // })
 
+let id = 1;
+
 const handleImage = (e) => {
   setProductImage({
     raw: e.target.files[0]
@@ -38,7 +40,7 @@ const removePreview = () => {
 
 const handleSubmit = () => {
   if(title && description && productImage && price && releaseDate){
-    dispatch(uploadProduct(title, description, price, releaseDate, productImage))
+    dispatch(editProduct(id, title, description, price, releaseDate, productImage))
     history.push('/admin')
   }
 }

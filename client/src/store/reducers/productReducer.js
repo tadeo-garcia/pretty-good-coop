@@ -10,7 +10,7 @@ import {
 export default function productsReducer(state = {}, action) {
   switch (action.type) {
     case LOAD_PRODUCTS:
-      return { ...state, list: action.products};
+      return action.products
     case LOAD_PRODUCT:
       return { ...state, single: action.product };
     case DELETE_PRODUCT:
