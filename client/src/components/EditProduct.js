@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {editProduct, loadProduct} from '../store/actions/productActions';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 
 export default function EditProduct(){
+const { id } = useParams()
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [productImage, setProductImage] = useState(null);
@@ -17,8 +18,6 @@ const history = useHistory();
 // useEffect(()=>{
 //     dispatch()
 // })
-
-let id = 1;
 
 const handleImage = (e) => {
   setProductImage({
