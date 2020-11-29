@@ -64,7 +64,7 @@ export const loadProducts = () => {
     let data = await res.json();
     if(res.ok){
       dispatch(getProducts(data.products))
-      console.log(data.products)
+      // console.log(data.products)
     }
     return res;
   }

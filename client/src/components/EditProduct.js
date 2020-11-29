@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { editProduct } from '../store/actions/productActions';
+import { editProduct, loadProduct } from '../store/actions/productActions';
 import { useHistory, useParams } from 'react-router-dom';
 
 export default function EditProduct(){
-const product = useSelector((state)=> state.product)
+const product = useSelector((state)=> state.products)
 const { id } = useParams();
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
@@ -15,6 +15,9 @@ const [releaseDate, setReleaseDate] = useState(null);
 const dispatch = useDispatch();
 const history = useHistory();
 
+useEffect(()=>{
+  dispatch(loadProduct(id))
+},[id])
 
 const handleImage = (e) => {
   setProductImage({

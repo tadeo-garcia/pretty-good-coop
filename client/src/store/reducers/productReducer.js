@@ -10,9 +10,9 @@ import {
 export default function productsReducer(state = {}, action) {
   switch (action.type) {
     case LOAD_PRODUCTS:
-      return action.products
+      return {...state, list: action.products}
     case LOAD_PRODUCT:
-      return action.product
+      return {...state, single: action.product}
     case DELETE_PRODUCT:
       return state.users.filter((data, i) => i !== action.productId - 1);
     case ADD_PRODUCT:
