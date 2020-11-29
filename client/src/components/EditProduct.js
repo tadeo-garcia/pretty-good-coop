@@ -75,7 +75,7 @@ if(!product) return <div>product did not load properly</div>;
         {previewImage?(
           <img src={previewImage} alt='' className='editProduct__imagepreview'/>
         ):(
-        <span>image preview</span>
+          <img src={product.imageUrl} alt='' className='editProduct__imagepreview'/>
         )}
       </div>
     </div>
