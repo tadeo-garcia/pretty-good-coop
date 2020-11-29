@@ -25,11 +25,11 @@ def load_products():
     data = [product.to_dict() for product in products]
     return {"products": data}
 
-@product_routes.route('/:id', methods=['GET'])
+@product_routes.route('/by_id', methods=['GET'])
 def load_product():
-    productId = request.json.get('productId', None)
-    product = Product.query.filter_by(id=productId).first()
-    product is None
+    productId = request.args.get('id', None)
+    product = Product.query.get(productId)
+    # product is None
     return {"product": product.to_dict()}
 
 @product_routes.route('/add', methods=['PUT'])

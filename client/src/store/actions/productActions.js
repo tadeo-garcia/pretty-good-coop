@@ -8,7 +8,6 @@ import {
   EDIT_PRODUCT,
   DELETE_PRODUCT
 } from '../constants/productConstants';
-import EditProduct from "../../components/EditProduct";
 
 //////////////ACTIONS/////////////////////
 export const getProduct = (product) => {
@@ -50,7 +49,7 @@ export const removeProduct = (productId) => {
 
 export const loadProduct = (id) => {
   return async (dispatch) => {
-    const res = await fetch(`/api/products/${id}`)
+    const res = await fetch(`/api/products/by_id?id=${id}`)
     let data = await res.json();
     if(res.ok){
       dispatch(getProduct(data.product))
@@ -129,7 +128,7 @@ export const deleteProduct = (id) => {
         "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
       }
     });
-    let data = await res.json();
+    // let data = await res.json();
     if(!res.ok) throw res;
     if(res.ok){
       dispatch(removeProduct(id))

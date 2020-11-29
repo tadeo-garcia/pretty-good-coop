@@ -1,23 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {editProduct, loadProduct} from '../store/actions/productActions';
-import {useHistory, useParams} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { editProduct } from '../store/actions/productActions';
+import { useHistory } from 'react-router-dom';
 
 export default function EditProduct(){
-const { id } = useParams()
+const product = useSelector((state)=> state.product)
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [productImage, setProductImage] = useState(null);
 const [previewImage, setPreviewImage] = useState(null);
 const [price, setPrice] = useState(null);
 const [releaseDate, setReleaseDate] = useState(null);
-// const [sizes, setSizes] = useState(null);
 const dispatch = useDispatch();
 const history = useHistory();
 
-// useEffect(()=>{
-//     dispatch()
-// })
 
 const handleImage = (e) => {
   setProductImage({
@@ -39,10 +35,12 @@ const removePreview = () => {
 
 const handleSubmit = () => {
   if(title && description && productImage && price && releaseDate){
-    dispatch(editProduct(id, title, description, price, releaseDate, productImage))
+    dispatch(editProduct(product.id, title, description, price, releaseDate, productImage))
     history.push('/admin')
   }
 }
+
+if(!product) return null;
 
   return(
     <div className="addProductWrapper">
