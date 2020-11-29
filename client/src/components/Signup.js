@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../store/actions/authActions';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 let emailDiv = "signupContainer__form-input";
 let passwordDiv = "signupContainer__form-input";
@@ -36,7 +36,11 @@ function Signup() {
       passwordDiv = "signupContainer__form-bad-input";
       setNoEmail("Please enter a valid email")
       setNoPassword("Please enter a valid password");
-    } else if ((email===emailTwo)  && ((password!==passwordTwo)||(!password || !passwordTwo))) {
+    } else if (
+      (email === emailTwo) && ((password !== passwordTwo)
+      ||
+      (!password || !passwordTwo))
+      ) {
       passwordDiv = "signupContainer__form-bad-input";
       setNoPassword("Please make sure password fields match.");
     } else if(((email !== emailTwo) || (!email || !emailTwo))&&(password===passwordTwo)) {

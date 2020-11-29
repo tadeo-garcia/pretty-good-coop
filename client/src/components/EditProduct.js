@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { editProduct } from '../store/actions/productActions';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 export default function EditProduct(){
 const product = useSelector((state)=> state.product)
+const { id } = useParams();
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [productImage, setProductImage] = useState(null);
@@ -40,7 +41,7 @@ const handleSubmit = () => {
   }
 }
 
-if(!product) return null;
+if(!product) return <div>no product</div>;
 
   return(
     <div className="addProductWrapper">

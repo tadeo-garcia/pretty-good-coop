@@ -14,7 +14,7 @@ export default function AdminProduct(product){
   return(
     <>
       <div className="adminProductWrapper">
-        <img src={singleProduct.imageUrl} className="adminProductImage"/>
+        <img src={singleProduct.imageUrl} className="adminProductImage" alt='adminProduct'/>
         <h3>{singleProduct.description}</h3>
         <h3>{singleProduct.price}</h3>
         <Link  to={`/admin/edit/${singleProduct.id}`} 
