@@ -29,7 +29,6 @@ function Signup() {
     setNoInfo('');
 
     if ((email === emailTwo) && (password === passwordTwo) && (email !== "")) {
-      console.log(email, password)
       dispatch(signup(email.toLocaleLowerCase(), password));
     } else if (email === emailTwo === password === passwordTwo === "") {
       emailDiv = "signupContainer__form-bad-input";
