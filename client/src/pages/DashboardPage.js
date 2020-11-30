@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import { useSelector } from "react-redux";
-import { Redirect, Switch, Route } from "react-router-dom";
+import React from "react";
+// import { useSelector } from "react-redux";
+import {  Switch, Route } from "react-router-dom";
 import ProductDisplay from "../components/ProductDisplay"
 
 export default function Dashboard(){

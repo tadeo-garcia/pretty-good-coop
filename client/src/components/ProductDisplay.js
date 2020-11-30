@@ -10,18 +10,18 @@ import AdminProduct from "./AdminProduct";
 export default function ProductDisplay(){
   const dispatch = useDispatch();
   const currentUserId = useSelector(state => state.auth.id);
-  const products = useSelector(state=>state.products);
-  let productsArray = Array.from(products);
+  const products = useSelector(state=>state.products.list);
   let adminDisplay = false;
-
+  
   useEffect(()=>{
     dispatch(loadProducts());
   }, [dispatch])
-
+  
   if(currentUserId === 666){
     adminDisplay = true
   }
   if(!products)return null;
+  let productsArray = Array.from(products);
 
   return(
     <>

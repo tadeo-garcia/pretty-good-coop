@@ -28,10 +28,10 @@ function Login() {
     }
   }
 
-  const demo = e => {
-    e.preventDefault();
-    dispatch(login('demo@moneypit.com', 'password'))
-  };
+  // const demo = e => {
+  //   e.preventDefault();
+  //   dispatch(login('demo@moneypit.com', 'password'))
+  // };
 
   if (currentUserId) return <Redirect to='/' />
 
@@ -70,6 +70,3 @@ function Login() {
   )
 }
 export default Login;
-
-
-{/* <NavLink className='navbarContainer__links-navlink' to='/signup'>Sign Up</NavLink> */}

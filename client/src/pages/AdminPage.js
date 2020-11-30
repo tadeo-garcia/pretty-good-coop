@@ -1,5 +1,5 @@
-import React, {useState, useRef} from "react";
-import { useSelector } from "react-redux";
+import React, {useRef} from "react";
+// import { useSelector } from "react-redux";
 import { Link, Switch, Route } from "react-router-dom";
 import AddProduct from '../components/AddProduct';
 import EditProduct from '../components/EditProduct';
@@ -17,13 +17,13 @@ export default function Admin(){
           <div className="admin__content-leftnav">
             <div className="admin__content-links">
               <Link className="admin__content-link" to='/admin/addproduct'>
-                Add Product
+                add product
               </Link>
               <Link className="admin__content-link" to='/admin/viewproducts'>
-                View Products
+                view products
               </Link>
               <Link className="admin__content-link" to='/admin/viewarchive'>
-                View Archive
+                view archive
               </Link>
             </div>
           </div>

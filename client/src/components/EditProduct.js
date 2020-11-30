@@ -1,23 +1,23 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {editProduct, loadProduct} from '../store/actions/productActions';
-import {useHistory, useParams} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { editProduct, loadProduct } from '../store/actions/productActions';
+import { useHistory, useParams } from 'react-router-dom';
 
 export default function EditProduct(){
-const { id } = useParams()
+const product = useSelector((state)=> state.products.single)
+const { id } = useParams();
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [productImage, setProductImage] = useState(null);
 const [previewImage, setPreviewImage] = useState(null);
 const [price, setPrice] = useState(null);
 const [releaseDate, setReleaseDate] = useState(null);
-// const [sizes, setSizes] = useState(null);
 const dispatch = useDispatch();
 const history = useHistory();
 
-// useEffect(()=>{
-//     dispatch()
-// })
+useEffect(()=>{
+  dispatch(loadProduct(id))
+},[id])
 
 const handleImage = (e) => {
   setProductImage({
@@ -38,41 +38,49 @@ const removePreview = () => {
 }
 
 const handleSubmit = () => {
-  if(title && description && productImage && price && releaseDate){
-    dispatch(editProduct(id, title, description, price, releaseDate, productImage))
-    history.push('/admin')
-  }
+  
+  dispatch(
+    editProduct(product.id, 
+                title, 
+                description, 
+                price, 
+                releaseDate, 
+                productImage))
+  // history.push('/admin')
 }
 
+if(!product) return <div>product did not load properly</div>;
+
   return(
-    <div className="addProductWrapper">
-      <form className="addProduct__form" onSubmit={handleSubmit}>
-        <input className="addProduct__form-input" type='text' 
-        onChange={(e)=>setTitle(e.target.value)} placeholder='Title'/>
-        <textarea className="addProduct__form-input" 
-        onChange={(e)=>setDescription(e.target.value)} placeholder='Description'/>
-        <input className="addProduct__form-input" type='number'
-        onChange={(e)=>setPrice(e.target.value)} placeholder='Price'/>
-        <div className="addProduct__form-input">
-          <span>Release Date:</span>
-          <input type='date' placeholder='Release Date'
+    <div className="editProductWrapper">
+      <form className="editProduct__form" onSubmit={handleSubmit}>
+        <div className="editProduct__title">edit product</div>
+        <input className="editProduct__form-input" type='text' 
+        onChange={(e)=>setTitle(e.target.value)} placeholder={product.title}/>
+        <textarea className="editProduct__form-input" 
+        onChange={(e)=>setDescription(e.target.value)} placeholder={product.description}/>
+        <input className="editProduct__form-input" type='number'
+        onChange={(e)=>setPrice(e.target.value)} placeholder={product.price}/>
+        <div className="editProduct__form-input">
+          <span>release date:</span>
+          <input type='date'
           onChange={(e)=>setReleaseDate(e.target.value)}/>
         </div>
-        <div className="addProduct__form-input">
-          <label htmlFor='fileUpload' className='addProduct__form-file'> 
-            Choose File
-            <input id='fileUpload' className="addProduct__form-input" 
+        <div className="editProduct__form-input">
+          <label htmlFor='fileUpload' className='editProduct__form-file'> 
+            choose file
+            <input id='fileUpload' className="editProduct__form-input" 
             type="file" title=' ' onChange={handleImage}/>
           </label>
         </div>
-        <input type="submit" className="addProduct__form-file"/>
-        <button className="addProduct__form-file" onClick={removePreview}>Remove</button>
+        <input type="submit" className="editProduct__form-file" value='submit'/>
+        <button className="editProduct__form-file" onClick={removePreview}>remove file</button>
       </form>
-      <div className="addProduct__preview-div">
+      <div className="editProduct__preview-div">
         {previewImage?(
-          <img src={previewImage} alt='' className='addProduct__imagepreview'/>
+          <img src={previewImage} alt='' className='editProduct__imagepreview'/>
         ):(
-        <span>Image Preview</span>
+          <img src={product.imageUrl} alt='' className='editProduct__imagepreview'/>
         )}
       </div>
     </div>

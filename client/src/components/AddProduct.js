@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {uploadProduct} from '../store/actions/productActions';
-import {useHistory} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { uploadProduct } from '../store/actions/productActions';
+import { useHistory } from 'react-router-dom';
 
 export default function AddProduct(){
 const [title, setTitle] = useState('');

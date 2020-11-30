@@ -8,7 +8,6 @@ import {
   EDIT_PRODUCT,
   DELETE_PRODUCT
 } from '../constants/productConstants';
-import EditProduct from "../../components/EditProduct";
 
 //////////////ACTIONS/////////////////////
 export const getProduct = (product) => {
@@ -50,7 +49,7 @@ export const removeProduct = (productId) => {
 
 export const loadProduct = (id) => {
   return async (dispatch) => {
-    const res = await fetch(`/api/products/${id}`)
+    const res = await fetch(`/api/products/by_id?id=${id}`)
     let data = await res.json();
     if(res.ok){
       dispatch(getProduct(data.product))
@@ -65,7 +64,7 @@ export const loadProducts = () => {
     let data = await res.json();
     if(res.ok){
       dispatch(getProducts(data.products))
-      console.log(data.products)
+      // console.log(data.products)
     }
     return res;
   }
@@ -97,24 +96,26 @@ export const uploadProduct = (title, description, price, releaseDate, file) =>{
 
 export const editProduct = (id, title, description, price, releaseDate, file)=>{
   let formData = new FormData();
-  
-  formData.append("productId", id)
+
+  if(file) formData.append("file", file.raw);
+  formData.append("id", id)
   formData.append("title", title);
   formData.append("description", description);
   formData.append("price", price);
   formData.append("releaseDate", releaseDate);
-  formData.append("file", file.raw);
+
   let config = {
     headers: {
       "Content-Type": "multipart/form-data"
     }
   }
+
   return async (dispatch) => {
-    const res = await axios.put("/api/products/add", formData, config);
+    const res = await axios.put("/api/products/edit", formData, config);
     let product = res.data.product;
     if(product){
       dispatch(modifyProduct(product))
-      // console.log(product)
+      console.log(product)
     }
     return res;
   }
@@ -123,13 +124,13 @@ export const editProduct = (id, title, description, price, releaseDate, file)=>{
 
 export const deleteProduct = (id) => {
   return async (dispatch) => {
-    const res = await fetch(`/api/producs/${id}`, {
+    const res = await fetch(`/api/products/${id}`, {
       method: "DELETE",
       headers:{
         "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
       }
     });
-    let data = await res.json();
+    // let data = await res.json();
     if(!res.ok) throw res;
     if(res.ok){
       dispatch(removeProduct(id))
