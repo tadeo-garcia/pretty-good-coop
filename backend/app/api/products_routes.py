@@ -69,15 +69,7 @@ def edit_product():
     new_description = request.form.get('description')
     new_price = request.form.get('price')
     new_releaseDate = request.form.get('releaseDate')
-
-    print('~~~~~~~BEFOREEEEE~~~~')
-    print(product.title)
-    print(product.description)
-    print(product.price)
-    print(new_price)
-    print(product.releaseDate)
-    print(new_releaseDate)
-
+    
     if new_title:
         product.title = new_title
     if new_description:
@@ -90,13 +82,8 @@ def edit_product():
         product.releaseDate = product.releaseDate
     else: 
         product.releaseDate = new_releaseDate
-    print('~~~~~~~aFTERR~~~~')
-    print(product.title)
-    print(product.description)
-    print(product.price)
-    print(product.releaseDate)
 
-    file = (request.files and request.files['file']) or None
+    file = request.files['file'] or None
     print(file)
     if file == None:
         db.session.add(product)
