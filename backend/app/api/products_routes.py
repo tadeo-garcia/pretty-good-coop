@@ -90,13 +90,14 @@ def edit_product():
         product.releaseDate = product.releaseDate
     else: 
         product.releaseDate = new_releaseDate
+
     print('~~~~~~~aFTERR~~~~')
     print(product.title)
     print(product.description)
     print(product.price)
     print(product.releaseDate)
 
-    file = (request.files and request.files['file']) or None
+    file = request.files['file'] or None
     print(file)
     if file == None:
         db.session.add(product)
