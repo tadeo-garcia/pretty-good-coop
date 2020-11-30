@@ -38,10 +38,15 @@ const removePreview = () => {
 }
 
 const handleSubmit = () => {
-  if(title && description && productImage && price && releaseDate){
-    dispatch(editProduct(product.id, title, description, price, releaseDate, productImage))
-    history.push('/admin')
-  }
+  
+  dispatch(
+    editProduct(product.id, 
+                title, 
+                description, 
+                price, 
+                releaseDate, 
+                productImage))
+  // history.push('/admin')
 }
 
 if(!product) return <div>product did not load properly</div>;
