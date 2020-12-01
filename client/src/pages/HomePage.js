@@ -1,8 +1,16 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React , { useState, useEffect }  from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function HomePage() {
+  const [desktop, setDesktop] = useState(window.innerWidth > 900)
 
+  const updateScreen = ()=>{
+    setDesktop(window.innerWidth>900)
+  }
+  useEffect( () => {
+    window.addEventListener('resize', updateScreen)
+    return () => window.removeEventListener('resize', updateScreen)
+  })
 
   return (
     <div className='homepageContainer'>
@@ -15,6 +23,19 @@ export default function HomePage() {
           by tadeo garcia
         </div>
         <NavLink to='/'><div className='homepageBanner__logo'/></NavLink>  
+      </div>
+      <div className="homepageContent">
+          {desktop ? (
+          <div className="homepageContent__Desktop">
+            <div className="homeSpinner"/>
+            <div className="homeSpinner"/>
+            <div className="homeSpinner"/>
+          </div>
+        ):(
+          <div className="homepageContent__Mobile">
+            <div className="homeSpinner"/>
+          </div>
+        )}
       </div>
     </div>
   )
