@@ -1,5 +1,7 @@
 import React , { useState, useEffect }  from 'react';
 import { NavLink } from 'react-router-dom';
+import NavBar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function HomePage() {
   const [desktop, setDesktop] = useState(window.innerWidth > 900)
@@ -13,6 +15,7 @@ export default function HomePage() {
   })
 
   return (
+    <>
     <div className='homepageContainer'>
       <div className='homepageBanner'>
         <div className="homepageBanner__credit">
@@ -24,6 +27,7 @@ export default function HomePage() {
         </div>
         <NavLink to='/'><div className='homepageBanner__logo'/></NavLink>  
       </div>
+      <NavBar/>
       <div className="homepageContent">
           {desktop ? (
           <div className="homepageContent__Desktop">
@@ -37,6 +41,8 @@ export default function HomePage() {
           </div>
         )}
       </div>
+    <Footer/>
     </div>
+    </>
   )
 }
