@@ -1,5 +1,4 @@
 import React from 'react';
-import Auth from '../components/Auth'
 import { Route, Switch } from 'react-router-dom';
 
 import UserPage from './UserPage';
@@ -14,7 +13,7 @@ export default function Pages() {
   return (
     <>
     <Switch>
-      <Route exact path="/" component={UserPage} />
+      <Route path="/" component={UserPage} />
       <Route path="/admin" component={Admin}/>
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />

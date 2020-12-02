@@ -33,9 +33,15 @@
 }
 
 .aboutFineprint {
-  font-size: 10px;
+  font-size: 14px;
   position: absolute;
-  bottom: 65px;
+  bottom: 75px;
+  color: black;
+  text-decoration: none;
+}
+
+.aboutFineprint:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
@@ -74,8 +80,8 @@
   }
 
   .aboutFineprint {
-    font-size: 9px;
+    font-size: 10px;
     position: absolute;
-    bottom: 65px;
+    bottom: 75px;
   }
 }
