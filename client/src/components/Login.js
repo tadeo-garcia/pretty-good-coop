@@ -38,7 +38,7 @@ function Login() {
     dispatch(login('admin@prettygoodcoop.com', 'password'))
   };
 
-
+  if (currentUserId === 666) return <Redirect to='/admin' />
   if (currentUserId) return <Redirect to='/' />
 
   return (
