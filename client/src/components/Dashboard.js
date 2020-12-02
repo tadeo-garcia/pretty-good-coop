@@ -12,9 +12,9 @@ export default function Dashboard(){
       <div className="dashboardWrapper">
         <div id="dashboard__content">
             <Switch>
-              <Route to='/' component={Splash}/>
-              <Route exact path="/dashboard" component={ProductDisplay} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/shop" component={ProductDisplay} />
+              <Route exact path='/' component={Splash}/>
             </Switch>
           </div>
       </div>

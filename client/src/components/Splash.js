@@ -14,15 +14,15 @@ export default function Splash() {
 
   return (
     <>
-      <div className="homepageContent">
+      <div className="userpageContent">
           {desktop ? (
-          <div className="homepageContent__Desktop">
+          <div className="userpageContent__Desktop">
             <div className="homeSpinner"/>
             <div className="homeSpinner"/>
             <div className="homeSpinner"/>
           </div>
         ):(
-          <div className="homepageContent__Mobile">
+          <div className="userpageContent__Mobile">
             <div className="homeSpinner"/>
           </div>
         )}

@@ -1,7 +1,8 @@
-import React from 'react'
-// import PDF from '../images/learnmore.pdf';
+import React from 'react';
+
 
 export default function About(){
+
   return(
     <div className="aboutContainer">
       <div className="aboutContainer__content">
@@ -24,6 +25,15 @@ export default function About(){
           <p>
             es una oportunidad para conectar, crear y retribuir.
           </p>
+
+          <div className="membersList">
+            <a href='http://prettygoodco-op.com'
+              className="membersList__member">danny</a>
+            <span>&&</span>
+            <a href='github.com/tadeo-garcia'
+              className="membersList__member">tadeo</a>
+      
+        </div>
           <a 
           href="https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/fineprint.pdf" 
           className='aboutFineprint' rel="noreferrer" target='_blank'>
