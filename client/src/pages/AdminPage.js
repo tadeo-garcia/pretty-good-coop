@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
-import { useDispatch } from "react-redux";
-import { Link, Switch, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Switch, Route, Redirect } from "react-router-dom";
 import AddProduct from '../components/AddProduct';
 import EditProduct from '../components/EditProduct';
 import ProductDisplay from '../components/ProductDisplay';
@@ -15,6 +15,9 @@ export default function Admin(){
     e.preventDefault();
     dispatch(logout());
   };
+  const currentUserId = useSelector(state => state.auth.id);
+
+  if(!currentUserId) return <Redirect to='/'/>
 
   return(
     <>
