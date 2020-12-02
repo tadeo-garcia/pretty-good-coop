@@ -27,7 +27,8 @@
 .admin__content-link {
   margin-bottom: 15px;
   text-decoration: none;
-  color: black;
+  color: white;
+  font-weight: 900;
 }
 
 .admin__content-link:hover {

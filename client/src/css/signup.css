@@ -1,7 +1,6 @@
 .signupWrapper {
   height: 100vh;
   margin-top: -180px;
-  /* background-color: #f0f0f0; */
 }
 
 .signupContainer {
@@ -18,17 +17,6 @@
   max-width: 398px;
   margin: auto;
 }
-
-/* .authLogo__Signup {
-  width: 100px;
-  height: 100px;
-  background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/pg_logo_black.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: -100px;
-  right: 25px;
-} */
 
 .signupContainer__form-label {
   margin-top: 30px;

@@ -8,8 +8,8 @@ function Footer() {
     <div id='footerContainer'>
       <div id='footerContainer__left'>
         <div>
-          <p className='footerContainer__text' >Copyright © 2020</p>
-          <p className='footerContainer__text' >Pretty Good Co-op</p>
+          <p className='footerContainer__text' >copyright © 2020</p>
+          <p className='footerContainer__text' >pretty good co-op</p>
         </div>
       </div>
       <div id='footerContainer__middle'>
