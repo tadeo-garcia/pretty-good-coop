@@ -47,7 +47,7 @@ export default function Admin(){
                 logout
               </Link>
             </div>
-            <Link to='/admin'><div className='adminBanner__logo'/></Link> 
+            <Link to='/'><div className='adminBanner__logo'/></Link> 
           </div>
           <div className="displayWrapper">
             <Switch>

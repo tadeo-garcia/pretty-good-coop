@@ -1,7 +1,7 @@
 .adminWrapper {
   width: 100%;
   height: 100%;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
 }
 
 .admin__content {
@@ -13,20 +13,23 @@
 
 .admin__content-links {
   width: 300px;
-  height: 140px;
+  height: 170px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  margin-top: 15px;
-  padding-left: 15px;
+  /* margin-top: 15px; */
+  padding-top: 10px;
+  padding-left: 35px;
 }
 
 .admin__content-link {
   margin-bottom: 12px;
   text-decoration: none;
-  color: white;
+  color: black;
   font-weight: 900;
   margin-right: 15px;
+  background-color: rgb(255, 255, 255, 0.25);
+  width: 165px;
 }
 
 .admin__content-link:hover {
@@ -35,17 +38,30 @@
 
 .adminBanner {
   margin-top: 25px;
-  height: 150px;
+  height: 170px;
   width: 100%;
   background-image: url("https://i.imgur.com/IQj1Pll.jpg");
   background-size: cover;
   background-position: center;
 }
 
+.adminBanner__logo {
+  position: absolute;
+  top: 27.5px;
+  right: 25px;
+  width: 100px;
+  height: 165px;
+  background-color: rgb(255, 255, 255, 0.25);
+  background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/pg_logo_black_tall.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
 @media (max-width: 900px) {
   .adminBanner {
     margin-top: 25px;
-    height: 150px;
+    height: 170px;
     width: 100%;
     background-image: url("https://i.imgur.com/IQj1Pll.jpg");
     background-position-x: left;
@@ -56,31 +72,17 @@
 
   .admin__content-links {
     width: 250px;
-    height: 150px;
+    height: 170px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin-top: 40px;
-    padding-left: 15px;
+    padding-left: 35px;
   }
   .admin__content-link {
     color: black;
-    margin-bottom: 3px;
+    margin-bottom: 12px;
     margin-right: 5px;
-    background-color: rgb(255, 255, 255, 0.25);
+    background-color: rgb(255, 255, 255, 0.35);
     width: 150px;
-  }
-
-  .adminBanner__logo {
-    position: absolute;
-    top: 27.5px;
-    right: 25px;
-    width: 100px;
-    height: 145px;
-    background-color: rgb(255, 255, 255, 0.25);
-    background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/pg_logo_black_tall.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
   }
 }
