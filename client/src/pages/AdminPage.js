@@ -4,6 +4,7 @@ import { Link, Switch, Route, Redirect } from "react-router-dom";
 import AddProduct from '../components/AddProduct';
 import EditProduct from '../components/EditProduct';
 import ProductDisplay from '../components/ProductDisplay';
+import Footer from '../components/Footer';
 import {logout} from '../store/actions/authActions'
 
 
@@ -54,6 +55,7 @@ export default function Admin(){
                 logout
               </Link>
             </div>
+          </div>
           <div className="displayWrapper">
             <Switch>
                 <Route exact path='/admin/' component={ProductDisplay}/>
@@ -62,7 +64,6 @@ export default function Admin(){
                 <Route exact path='/admin/viewproducts' component={ProductDisplay}/>
             </Switch>
             </div>
-          </div>
         </div>
       </div>
     </>

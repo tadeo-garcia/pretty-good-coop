@@ -12,7 +12,6 @@ import Admin from './AdminPage';
 export default function Pages() {
   return (
     <>
-      {/* <NavBar/> */}
       <Route exact path="/" component={HomePage} />
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route path="/admin" component={Admin}/>
