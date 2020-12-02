@@ -27,7 +27,8 @@ export default function NavBar() {
     //     )}
     //     {currentUserId ? (
     //     <>
-    //       <NavLink className='navbarContainer__links-navlink' to='/signup'><i className="fas fa-shopping-cart" style={admin}/></NavLink>
+    //       <NavLink className='navbarContainer__links-navlink' to='/signup'>
+    //         <i className="fas fa-shopping-cart" style={admin}/></NavLink>
     //       <NavLink className='navbarContainer__links-navlink' 
     //       onClick={handleLogout} to='/'> logout</NavLink>
     //       </>
@@ -40,10 +41,24 @@ export default function NavBar() {
 
     <div className='navbarContainer'>
       <div className='navbarContainer__links'> 
+        {currentUserId === 666 ? (
+          <NavLink className='navbarContainer__link' to='/admin'>admin</NavLink>
+        ):(
+          null
+        )}
         <NavLink to='/about' className='navbarContainer__link'>about</NavLink>
         <a href='https://coprettygoodop.bigcartel.com' className='navbarContainer__link'>shop</a>
-        <NavLink to='/members' className='navbarContainer__link'>members</NavLink>
+        
         <NavLink to='/contact' className='navbarContainer__link'>contact</NavLink>
+        {currentUserId ? (
+          <>
+            <NavLink to='/cart' className='navbarContainer__link'>cart</NavLink>
+            <NavLink className='navbarContainer__link' 
+            onClick={handleLogout} to='/'> logout</NavLink>
+          </>
+            ):(
+              <NavLink className='navbarContainer__link' to='/login'>login</NavLink>
+        )}
       </div>
     </div>
   )
