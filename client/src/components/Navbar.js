@@ -26,8 +26,7 @@ export default function NavBar() {
           null
         )}
         <NavLink to='/about' className='navbarContainer__link'>about</NavLink>
-        <a href='https://coprettygoodop.bigcartel.com' className='navbarContainer__link'>shop</a>
-        
+        <NavLink to='/shop' className='navbarContainer__link'>shop</NavLink>
         <NavLink to='/contact' className='navbarContainer__link'>contact</NavLink>
         {currentUserId ? (
           <>

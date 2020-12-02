@@ -1,5 +1,5 @@
-import React , { useState, useEffect }  from 'react';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { NavLink} from 'react-router-dom';
 import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Dashboard from '../components/Dashboard';
