@@ -1,7 +1,17 @@
+.authLogo {
+  width: 100px;
+  height: 100px;
+  background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/pg_logo_black.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .loginWrapper {
   height: 100vh;
   margin-top: -180px;
-  /* background-color: #f0f0f0; */
 }
 
 .loginContainer {
@@ -52,7 +62,6 @@
 }
 
 .form-input {
-  /* margin-top: 20px; */
   margin-bottom: 15px;
   min-height: 42px;
   width: 100%;
