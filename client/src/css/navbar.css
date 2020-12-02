@@ -74,10 +74,12 @@
 @keyframes nav-load {
   0% {
     display: none;
+    /* color: white; */
     transform: translateY(-100%);
   }
 
   100% {
+    /* color: black; */
     transform: translateY(0);
   }
 }
