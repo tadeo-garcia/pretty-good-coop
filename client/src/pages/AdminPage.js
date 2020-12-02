@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Switch, Route, Redirect } from "react-router-dom";
+import { NavLink, Link, Switch, Route, Redirect } from "react-router-dom";
 import AddProduct from '../components/AddProduct';
 import EditProduct from '../components/EditProduct';
 import ProductDisplay from '../components/ProductDisplay';
@@ -24,7 +24,7 @@ export default function Admin(){
     <>
       <div className="adminWrapper">
         <div className="admin__content">
-          <div className="displayBanner">
+          <div className="adminBanner">
             <div className="admin__content-links">
               <Link className="admin__content-link" 
                 to='/admin/addproduct'>
@@ -43,18 +43,11 @@ export default function Admin(){
                 view archive
               </Link>
               <Link className="admin__content-link" 
-                to='/home'>
-                home
-              </Link>
-              <Link className="admin__content-link" 
-                to='/shop'>
-                shop
-              </Link>
-              <Link className="admin__content-link" 
                 to='/' onClick={handleLogout} >
                 logout
               </Link>
             </div>
+            <Link to='/admin'><div className='adminBanner__logo'/></Link> 
           </div>
           <div className="displayWrapper">
             <Switch>

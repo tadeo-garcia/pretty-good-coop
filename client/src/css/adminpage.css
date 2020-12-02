@@ -13,7 +13,7 @@
 
 .admin__content-links {
   width: 300px;
-  height: 150px;
+  height: 140px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -34,6 +34,7 @@
 }
 
 .adminBanner {
+  margin-top: 25px;
   height: 150px;
   width: 100%;
   background-image: url("https://i.imgur.com/IQj1Pll.jpg");
@@ -41,9 +42,45 @@
   background-position: center;
 }
 
-.adminGrid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 50px;
+@media (max-width: 900px) {
+  .adminBanner {
+    margin-top: 25px;
+    height: 150px;
+    width: 100%;
+    background-image: url("https://i.imgur.com/IQj1Pll.jpg");
+    background-position-x: left;
+    background-position-y: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .admin__content-links {
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 40px;
+    padding-left: 15px;
+  }
+  .admin__content-link {
+    color: black;
+    margin-bottom: 3px;
+    margin-right: 5px;
+    background-color: rgb(255, 255, 255, 0.25);
+    width: 150px;
+  }
+
+  .adminBanner__logo {
+    position: absolute;
+    top: 27.5px;
+    right: 25px;
+    width: 100px;
+    height: 145px;
+    background-color: rgb(255, 255, 255, 0.25);
+    background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/pg_logo_black_tall.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
