@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/actions/authActions';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, NavLink } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -45,6 +45,7 @@ function Login() {
     <>
       <div className='loginWrapper'>
           <div className="loginContainer">
+          <NavLink to='/'><div className='authLogo'/></NavLink>
             <div id='loginLabel'>
               log in
             </div>

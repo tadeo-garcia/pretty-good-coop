@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../store/actions/authActions';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 
 let emailDiv = "signupContainer__form-input";
 let passwordDiv = "signupContainer__form-input";
@@ -54,6 +54,7 @@ function Signup() {
     <>
       <div className='signupWrapper'>
         <div className="signupContainer">
+        <NavLink to='/'><div className='authLogo'/></NavLink>
           <form className='signupContainer__form' onSubmit={handleSubmit}>
             <div className='signupContainer__form-label'>
               sign up
