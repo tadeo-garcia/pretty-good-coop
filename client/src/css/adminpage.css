@@ -10,25 +10,22 @@
   height: 100%;
 }
 
-.admin__content-leftnav {
-  width: 20%;
-  min-width: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .admin__content-links {
+  width: 300px;
+  height: 150px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   margin-top: 15px;
+  padding-left: 15px;
 }
 
 .admin__content-link {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   text-decoration: none;
   color: white;
   font-weight: 900;
+  margin-right: 15px;
 }
 
 .admin__content-link:hover {
