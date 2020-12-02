@@ -18,27 +18,6 @@ export default function NavBar() {
   // }
 
   return (
-    // <header className='navbarContainer'>
-    //   <div className='navbarContainer__links'>
-    //     {currentUserId === 666 ? (
-    //       <NavLink className='navbarContainer__links-navlink' to='/admin'>admin</NavLink>
-    //     ):(
-    //       null
-    //     )}
-    //     {currentUserId ? (
-    //     <>
-    //       <NavLink className='navbarContainer__links-navlink' to='/signup'>
-    //         <i className="fas fa-shopping-cart" style={admin}/></NavLink>
-    //       <NavLink className='navbarContainer__links-navlink' 
-    //       onClick={handleLogout} to='/'> logout</NavLink>
-    //       </>
-          
-    //       ):(
-    //         <NavLink className='navbarContainer__links-navlink' to='/login'>login</NavLink>
-    //     )}
-    //   </div>
-    // </header>
-
     <div className='navbarContainer'>
       <div className='navbarContainer__links'> 
         {currentUserId === 666 ? (

@@ -28,10 +28,16 @@ function Login() {
     }
   }
 
-  // const demo = e => {
-  //   e.preventDefault();
-  //   dispatch(login('demo@moneypit.com', 'password'))
-  // };
+  const demoUser = e => {
+    e.preventDefault();
+    dispatch(login('javier@aa.io', 'password'))
+  };
+
+  const demoAdmin = e => {
+    e.preventDefault();
+    dispatch(login('admin@prettygoodcoop.com', 'password'))
+  };
+
 
   if (currentUserId) return <Redirect to='/' />
 
@@ -40,7 +46,7 @@ function Login() {
       <div className='loginWrapper'>
           <div className="loginContainer">
             <div id='loginLabel'>
-              Log in
+              log in
             </div>
             <form className='loginContainer__form' onSubmit={handleSubmit}>
               <div>
@@ -53,11 +59,17 @@ function Login() {
               <span style={{ color: 'red' }}>{noPassword}</span>
               <div>
                 <button type='submit' className='loginContainer__loginButton'>
-                  Log in
+                  log in
+                </button>
+                <button type='submit' className='loginContainer__loginButton' onClick={demoUser}>
+                  demo user log in
+                </button>
+                <button type='submit' className='loginContainer__loginButton' onClick={demoAdmin}>
+                  demo admin log in
                 </button>
                 <Link to='/signup'>
                   <button type='submit' className='loginContainer__loginButton'>
-                    Sign up
+                    sign up
                   </button>
                 </Link>
               </div>
