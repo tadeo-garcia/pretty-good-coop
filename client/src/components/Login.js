@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/actions/authActions';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, NavLink } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -28,19 +28,26 @@ function Login() {
     }
   }
 
-  // const demo = e => {
-  //   e.preventDefault();
-  //   dispatch(login('demo@moneypit.com', 'password'))
-  // };
+  const demoUser = e => {
+    e.preventDefault();
+    dispatch(login('javier@aa.io', 'password'))
+  };
 
+  const demoAdmin = e => {
+    e.preventDefault();
+    dispatch(login('admin@prettygoodcoop.com', 'password'))
+  };
+
+  if (currentUserId === 666) return <Redirect to='/admin' />
   if (currentUserId) return <Redirect to='/' />
 
   return (
     <>
       <div className='loginWrapper'>
           <div className="loginContainer">
+          <NavLink to='/'><div className='authLogo'/></NavLink>
             <div id='loginLabel'>
-              Log in
+              log in
             </div>
             <form className='loginContainer__form' onSubmit={handleSubmit}>
               <div>
@@ -53,11 +60,17 @@ function Login() {
               <span style={{ color: 'red' }}>{noPassword}</span>
               <div>
                 <button type='submit' className='loginContainer__loginButton'>
-                  Log in
+                  log in
+                </button>
+                <button type='submit' className='loginContainer__loginButton' onClick={demoUser}>
+                  demo user log in
+                </button>
+                <button type='submit' className='loginContainer__loginButton' onClick={demoAdmin}>
+                  demo admin log in
                 </button>
                 <Link to='/signup'>
                   <button type='submit' className='loginContainer__loginButton'>
-                    Sign up
+                    sign up
                   </button>
                 </Link>
               </div>

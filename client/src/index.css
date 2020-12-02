@@ -6,7 +6,7 @@
 }
 
 #root {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -22,3 +22,4 @@
 @import "./css/adminpage.css";
 @import "./css/adminproduct.css";
 @import "./css/editproduct.css";
+@import "./css/footer.css";

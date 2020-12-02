@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../store/actions/authActions';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 
 let emailDiv = "signupContainer__form-input";
 let passwordDiv = "signupContainer__form-input";
@@ -54,32 +54,33 @@ function Signup() {
     <>
       <div className='signupWrapper'>
         <div className="signupContainer">
+        <NavLink to='/'><div className='authLogo'/></NavLink>
           <form className='signupContainer__form' onSubmit={handleSubmit}>
             <div className='signupContainer__form-label'>
-              Sign up
+              sign up
             </div>
             <div>
               <span style={{ color: 'red' }}>{noEmail}</span> 
               <span style={{ color: 'red' }}>{noInfo}</span>
-              <input type='email' className={emailDiv} name='email' value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
+              <input type='email' className={emailDiv} name='email' value={email} placeholder="email" onChange={e => setEmail(e.target.value)} />
             </div>
             <div>
-              <input type='email' className={emailDiv} name='email' value={emailTwo} placeholder="Re-enter Email" onChange={e => setEmailTwo(e.target.value)} />
+              <input type='email' className={emailDiv} name='email' value={emailTwo} placeholder="re-enter email" onChange={e => setEmailTwo(e.target.value)} />
             </div>
             <div>
               <span style={{ color: 'red' }}>{noInfo}</span>
               <span style={{ color: 'red' }}>{noPassword}</span>
               <input type='password' className={passwordDiv} name='password' 
-              value={password} placeholder='Password' 
+              value={password} placeholder='password' 
               onChange={e => setPassword(e.target.value)} />
             </div>
             <div>
               <input type='password' className={passwordDiv} name='password' 
-              value={passwordTwo} placeholder='Re-Enter Password' 
+              value={passwordTwo} placeholder='re-enter password' 
               onChange={e => setPasswordTwo(e.target.value)} />
             </div>
             <div>
-              <button type='submit' className='signupContainer__form-button'>Create account</button>
+              <button type='submit' className='signupContainer__form-button'>create account</button>
             </div>
           </form>
         </div>

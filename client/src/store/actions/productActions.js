@@ -64,7 +64,6 @@ export const loadProducts = () => {
     let data = await res.json();
     if(res.ok){
       dispatch(getProducts(data.products))
-      // console.log(data.products)
     }
     return res;
   }
@@ -88,7 +87,6 @@ export const uploadProduct = (title, description, price, releaseDate, file) =>{
     let product = res.data.product;
     if(product){
       dispatch(postProduct(product))
-      // console.log(product)
     }
     return res;
   }
@@ -115,7 +113,6 @@ export const editProduct = (id, title, description, price, releaseDate, file)=>{
     let product = res.data.product;
     if(product){
       dispatch(modifyProduct(product))
-      console.log(product)
     }
     return res;
   }

@@ -5,25 +5,26 @@ function Footer() {
 
 
   return (
-    <div id='footer-container'>
-      <div id='footer-container__left'>
+    <div id='footerContainer'>
+      <div id='footerContainer__left'>
         <div>
-          <Link id='footer-container__link' to='/about'>
-            <span > About </span>
-          </Link>
+          <p className='footerContainer__text' >copyright © 2020</p>
+          <p className='footerContainer__text' >pretty good co-op</p>
         </div>
       </div>
-      <div id='footer-container__middle'>
-        <a id='footer-container__link' href='https://github.com/tadeo-garcia/odaat/branches' >
+      <div id='footerContainer__middle'>
+        <a id='footerContainer__link' href='https://github.com/tadeo-garcia/pretty-good-coop' >
           <i className="fa fa-2x fa-github" aria-hidden="true"></i>
         </a>
-    </div>
-      <div id='footer-container__right'>
-        <div >
-        </div>
+      </div>
+      <div id='footerContainer__right'>
+        <a id='footerContainer__link' href='https://instagram.com/prettygoodco_op' >
+          <i className="fa fa-2x fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
   )
 }
+
 
 export default Footer;

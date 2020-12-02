@@ -1,46 +1,103 @@
 .homepageContainer {
   height: 100%;
+  width: 100%;
 }
 
 .homepageBanner {
-  display: flex;
-  flex-direction: row;
-  /* justify-content: center; */
-  height: 500px;
+  height: 240px;
   width: 100%;
-  /* background-image: url("https://imgur.com/7MVLpgY.png"); */
-  background-image: url("https://imgur.com/S9VFH5c.png");
+  margin-top: 20px;
+  background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/white_rock_2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: center; */
+  background-position: center;
 }
 
-.homepageBanner__nav {
+.homepageBanner__credit {
   position: absolute;
-  right: 75px;
+  left: 10px;
+  top: 25px;
+  font-size: 8px;
+  color: white;
 }
 
 .homepageBanner__logo {
-  width: 250px;
-  height: 500px;
-  /* min-width: 100px; */
-  /* background-image: url("https://i.imgur.com/DrP0F30.png"); */
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 100px;
+  height: 240px;
   background-image: url("https://i.imgur.com/sMwdZWS.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.homepageAbout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.homepageContent__Desktop {
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.homepageAbout__text {
-  width: 50%;
-  margin-top: 15px;
-  text-align: justify;
+.homeSpinner {
+  background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/buhk_spin.png");
+  z-index: 50;
+  height: 300px;
+  width: 300px;
+  margin-top: 50px;
+
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@media (max-width: 900px) {
+  .homepageContainer {
+    height: 100%;
+  }
+
+  .homepageBanner {
+    height: 200px;
+    width: 100%;
+    margin-top: 20px;
+    background-image: url("https://prettygoodcoop.s3-us-west-1.amazonaws.com/assets/white_rock_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .homepageBanner__logo {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background-image: url("https://i.imgur.com/sMwdZWS.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .homepageContent__Mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

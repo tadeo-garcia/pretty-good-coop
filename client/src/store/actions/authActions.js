@@ -45,7 +45,6 @@ export const login = (email, password) => {
 
 export const signup = (email, password) => {
   return async dispatch => {
-    console.log(email,password)
     const res = await fetch('/api/users/signup', {
       method: 'post',
       headers: {
@@ -70,7 +69,6 @@ export const logout = () => {
       headers: { },
     })
     if (res.ok) {
-      console.log('im loggin out chief')
       dispatch(logoutUser());
     }
     return res;
