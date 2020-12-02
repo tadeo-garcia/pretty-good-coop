@@ -21,7 +21,7 @@ export default function UserPage() {
       </div>
       <NavBar/>
       <Dashboard/>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
     </>
   )

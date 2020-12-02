@@ -14,7 +14,7 @@ export default function Auth() {
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />
       </Switch>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }
