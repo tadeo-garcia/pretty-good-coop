@@ -11,26 +11,34 @@
 }
 
 .productImage {
+  border: 3px solid black;
   height: 300px;
   width: 300px;
 }
 
-.productWrapper:hover .productImage__link-animate {
-  bottom: 50px;
-  opacity: 1;
-  padding: 10px;
-  text-decoration: none;
+.productDescription {
+  text-align: center;
 }
 
 .productImage__link {
-  position: absolute;
-  width: 100%;
-  background-color: black;
-  color: white;
+  /* display: none; */
+  /* bottom: 0px; */
   opacity: 0;
+  padding: 5px;
+  text-decoration: none;
+  /* transition: 0.3s; */
+}
+
+.productWrapper:hover .productImage__link {
+  /* position: absolute; */
+  box-shadow: 0px 0px 0px 4px black inset;
+  padding: 5px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  opacity: 1;
   cursor: pointer;
   text-align: center;
   text-decoration: underline;
   font-weight: 700;
-  transition: all 0.3s ease-in;
 }

@@ -8,11 +8,13 @@ export default function Product(product){
     <>
       <div className="productWrapper">
         <img src={singleProduct.imageUrl} className="productImage" alt='product'/>
-        <h3>{singleProduct.description}</h3>
-        <h3>{singleProduct.price}</h3>
         <Link to='/cart'  
         onClick={()=>{console.log(singleProduct.description, singleProduct.price)}}  
-        className="productImage__link productImage__link-animate">Add To Cart</Link>
+        className="productImage__link productImage__link-animate">add to cart</Link>
+        <div className="productDescription">{singleProduct.description}</div >
+        <div className="productPrice">
+          ${Math.round((singleProduct.price * 100)/100).toFixed(2)}
+        </div >
       </div>
     </>
   )
