@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
 import NavBar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Dashboard from '../components/Dashboard';
 
 export default function UserPage() {
@@ -21,7 +20,6 @@ export default function UserPage() {
       </div>
       <NavBar/>
       <Dashboard/>
-    {/* <Footer/> */}
     </div>
     </>
   )

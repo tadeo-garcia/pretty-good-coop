@@ -1,14 +1,18 @@
 .productWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-right: 20px;
   margin-left: 20px;
+  width: 300px;
   position: relative;
   overflow: hidden;
   margin-bottom: 25px;
 }
 
 .productImage {
-  height: 400px;
-  width: 400;
+  height: 300px;
+  width: 300px;
 }
 
 .productWrapper:hover .productImage__link-animate {
@@ -28,5 +32,5 @@
   text-align: center;
   text-decoration: underline;
   font-weight: 700;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in;
 }
