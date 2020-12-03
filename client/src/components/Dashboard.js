@@ -4,6 +4,7 @@ import {  Switch, Route } from "react-router-dom";
 import ProductDisplay from "./ProductDisplay";
 import About from "./About";
 import Splash from "./Splash";
+import ContactForm from "./ContactForm";
 
 export default function Dashboard(){
   
@@ -14,6 +15,7 @@ export default function Dashboard(){
             <Switch>
               <Route exact path="/about" component={About} />
               <Route exact path="/shop" component={ProductDisplay} />
+              <Route exact path="/contact" component={ContactForm} />
               <Route exact path='/' component={Splash}/>
             </Switch>
           </div>

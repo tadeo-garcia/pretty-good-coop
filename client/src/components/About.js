@@ -27,11 +27,11 @@ export default function About(){
           </p>
 
           <div className="membersList">
-            <a href='http://prettygoodco-op.com'
-              className="membersList__member">danny</a>
-            <span>&&</span>
             <a href='github.com/tadeo-garcia'
               className="membersList__member">tadeo</a>
+            <span>&&</span>
+            <a href='http://prettygoodco-op.com'
+              className="membersList__member">danny</a>
       
         </div>
           <a 
