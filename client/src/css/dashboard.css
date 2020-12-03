@@ -1,0 +1,8 @@
+@media (max-width: 900px) {
+  #dashboard__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
