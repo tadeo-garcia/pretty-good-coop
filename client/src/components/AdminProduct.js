@@ -1,16 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { loadProduct } from '../store/actions/productActions';
 import { Link } from 'react-router-dom';
 
 export default function AdminProduct(product){
-  const dispatch = useDispatch()
   let singleProduct = product.product;
   
-  // const load = (productId) => {
-  //   dispatch(loadProduct(productId))
-  // };
-
   return(
     <>
       <div className="adminProductWrapper">

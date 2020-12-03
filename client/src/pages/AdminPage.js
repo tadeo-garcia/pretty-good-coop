@@ -1,15 +1,13 @@
-import React, {useRef} from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Link, Switch, Route, Redirect } from "react-router-dom";
+import { Link, Switch, Route, Redirect } from "react-router-dom";
 import AddProduct from '../components/AddProduct';
 import EditProduct from '../components/EditProduct';
 import ProductDisplay from '../components/ProductDisplay';
-import Footer from '../components/Footer';
 import {logout} from '../store/actions/authActions'
 
 
 export default function Admin(){
-  const contentRef = useRef();
   const dispatch = useDispatch();
   
    const handleLogout = (e) => {
