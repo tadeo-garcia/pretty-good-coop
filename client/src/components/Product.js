@@ -7,9 +7,8 @@ export default function Product(product){
   return(
     <>
       <div className="productWrapper">
-        <div className="productImage__wrapper">
-          <img src={singleProduct.imageUrl} className="productImage" alt='product'/>
-        </div>
+        <img src={singleProduct.imageUrl} 
+        className="productImage" alt='product'/>
         <Link to='/cart'  
         onClick={()=>{console.log(singleProduct.description, singleProduct.price)}}  
         className="productImage__link productImage__link-animate">add to cart</Link>

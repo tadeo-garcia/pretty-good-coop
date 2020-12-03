@@ -27,7 +27,7 @@
 }
 
 .productWrapper:hover .productImage__link {
-  /* box-shadow: 0px 0px 0px 4px black inset; */
+  box-shadow: 0px 0px 0px 4px black inset;
   padding: 5px;
   width: 100%;
   background-color: white;
