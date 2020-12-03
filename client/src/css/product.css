@@ -8,10 +8,10 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 25px;
+  border: 3px solid black;
 }
 
 .productImage {
-  border: 3px solid black;
   height: 300px;
   width: 300px;
 }
@@ -21,17 +21,13 @@
 }
 
 .productImage__link {
-  /* display: none; */
-  /* bottom: 0px; */
   opacity: 0;
   padding: 5px;
   text-decoration: none;
-  /* transition: 0.3s; */
 }
 
 .productWrapper:hover .productImage__link {
-  /* position: absolute; */
-  box-shadow: 0px 0px 0px 4px black inset;
+  /* box-shadow: 0px 0px 0px 4px black inset; */
   padding: 5px;
   width: 100%;
   background-color: white;
