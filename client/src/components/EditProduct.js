@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { editProduct, loadProduct } from '../store/actions/productActions';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function EditProduct(){
 const product = useSelector((state)=> state.products.single)
@@ -13,11 +13,10 @@ const [previewImage, setPreviewImage] = useState(null);
 const [price, setPrice] = useState(null);
 const [releaseDate, setReleaseDate] = useState(null);
 const dispatch = useDispatch();
-const history = useHistory();
 
 useEffect(()=>{
   dispatch(loadProduct(id))
-},[id])
+},[id, dispatch])
 
 const handleImage = (e) => {
   setProductImage({
@@ -46,7 +45,6 @@ const handleSubmit = () => {
                 price, 
                 releaseDate, 
                 productImage))
-  // history.push('/admin')
 }
 
 if(!product) return <div>product did not load properly</div>;
@@ -60,7 +58,8 @@ if(!product) return <div>product did not load properly</div>;
         <textarea className="editProduct__form-input" 
         onChange={(e)=>setDescription(e.target.value)} placeholder={product.description}/>
         <input className="editProduct__form-input" type='number'
-        onChange={(e)=>setPrice(e.target.value)} placeholder={product.price}/>
+        onChange={(e)=>setPrice(e.target.value)} 
+        placeholder={'$' + Math.round((product.price * 100)/100).toFixed(2)}/>
         <div className="editProduct__form-input">
           <span>release date:</span>
           <input type='date'

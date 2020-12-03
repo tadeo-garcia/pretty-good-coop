@@ -13,10 +13,10 @@ export default function Pages() {
   return (
     <>
     <Switch>
-      <Route path="/" component={UserPage} />
       <Route path="/admin" component={Admin}/>
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/signup' component={Signup} />
+      <Route path='/login' component={Login} />
+      <Route path='/signup' component={Signup} />
+      <Route path="/" component={UserPage} />
     </Switch>
     <Footer/>
     </>

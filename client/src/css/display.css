@@ -1,9 +1,3 @@
-.displayWrapper {
-  width: 100%;
-  height: 85%;
-  /* border: 1px solid black; */
-}
-
 .displayBanner {
   height: 150px;
   width: 100%;
@@ -13,6 +7,13 @@
 }
 
 .displayGrid__admin {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.displayGrid__users {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

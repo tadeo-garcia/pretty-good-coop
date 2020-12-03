@@ -20,6 +20,9 @@ export default function ProductDisplay(){
   if(currentUserId === 666){
     adminDisplay = true
   }
+
+  
+
   if(!products)return null;
   let productsArray = Array.from(products);
 
@@ -34,12 +37,13 @@ export default function ProductDisplay(){
         })}
       </div>
     ):(
-      <div className="displayWrapper">
-        <div className="displayBanner"/>
-        <div className="displayGrid">
-          this is the pleebs display
+        <div className="displayGrid__users">
+        {productsArray.map((product, idx) =>{
+          return(
+            <Product product={product} key={idx}/>
+          )
+        })}
         </div>
-      </div>
     )}
     </>
   )
