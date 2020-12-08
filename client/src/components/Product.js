@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Product(product, handleAddToCart){
-  let singleProduct = product.product;
+export default function Product(props){
+  console.log(props)
+  let singleProduct = props.product;
+  let handleAdd = props.handleAddToCart;
+
  
   return(
     <>
@@ -10,7 +13,7 @@ export default function Product(product, handleAddToCart){
         <img src={singleProduct.imageUrl} 
         className="productImage" alt='product'/>
         <button  
-        onClick={()=>handleAddToCart(singleProduct)}  
+        onClick={()=>handleAdd(singleProduct)}  
         className="productImage__link productImage__link-animate">
           add to cart
         </button>
