@@ -1,6 +1,22 @@
 .cartTotal {
   position: absolute;
   color: white;
-  top: 0;
-  right: 0;
+  font-size: 38;
+  top: 230px;
+  right: 125px;
+}
+
+.cartTotal__link {
+  color: white;
+  text-decoration: none;
+}
+
+.cartTotal__link:hover {
+  text-decoration: underline;
+}
+
+.cartWrapper {
+  border: 1px solid black;
+  width: 95%;
+  height: 95%;
 }
