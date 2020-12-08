@@ -11,8 +11,12 @@ export default function Product(product){
         className="productImage" alt='product'/>
         <Link to='/cart'  
         onClick={()=>{console.log(singleProduct.description, singleProduct.price)}}  
-        className="productImage__link productImage__link-animate">add to cart</Link>
-        <div className="productDescription">{singleProduct.description}</div >
+        className="productImage__link productImage__link-animate">
+          add to cart
+        </Link>
+        <div className="productDescription">
+          {singleProduct.description}
+        </div >
         <div className="productPrice">
           ${Math.round((singleProduct.price * 100)/100).toFixed(2)}
         </div >
