@@ -23,8 +23,9 @@ const removeProduct = (product) => {
 //////////////THUNKS/////////////////////
 
 
-export const addToCart = (product) => 
-  async (dispatch, getState) => {
+export const addToCart = (product) => {
+  return async (dispatch, getState) => {
+    console.log(product)
     dispatch(addProduct(product))
   
 	// dispatch({
@@ -39,8 +40,10 @@ export const addToCart = (product) =>
 	// 	}
 	// });
 
-	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+	// localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+  }
 }
+  
 
 export const removeFromCart = (id) => (dispatch, getState) => {
 	dispatch({

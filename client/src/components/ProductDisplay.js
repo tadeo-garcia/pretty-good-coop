@@ -21,8 +21,8 @@ export default function ProductDisplay(){
   }
 
   const handleAddToCart = (product) => {
-    // dispatch(addToCart(product))
-    console.log(product)
+    dispatch(addToCart(product))
+    // console.log(product)
   }
 
   if(!products)return null;
