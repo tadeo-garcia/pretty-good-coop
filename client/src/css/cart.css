@@ -1,0 +1,34 @@
+.cartTotal {
+  position: absolute;
+  color: white;
+  font-size: 38;
+  top: 230px;
+  right: 125px;
+}
+
+.cartTotal__link {
+  color: white;
+  text-decoration: none;
+}
+
+.cartTotal__link:hover {
+  text-decoration: underline;
+}
+
+.cartWrapper {
+  border: 1px solid black;
+  width: 95%;
+  height: 95%;
+  display: flex;
+  flex-direction: row;
+}
+
+.cartItems {
+  width: 70%;
+  height: 100%;
+}
+
+.cartTotals {
+  width: 30%;
+  height: 100%;
+}

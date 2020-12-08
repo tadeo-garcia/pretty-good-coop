@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {logout} from '../store/actions/authActions'
 
-export default function NavBar() {
+export default function NavBarMobile() {
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
 
@@ -17,14 +17,6 @@ export default function NavBar() {
   return (
     <div className='navbarContainer'>
       <div className='navbarContainer__links'> 
-        {currentUserId === 666 ? (
-          <NavLink className='navbarContainer__link' to='/admin'>admin</NavLink>
-        ):(
-          null
-        )}
-        <NavLink to='/about' className='navbarContainer__link'>about</NavLink>
-        <NavLink to='/shop' className='navbarContainer__link'>shop</NavLink>
-        <NavLink to='/contact' className='navbarContainer__link'>contact</NavLink>
         {currentUserId ? (
           <>
             <NavLink to='/cart' className='navbarContainer__link'>cart</NavLink>
@@ -35,6 +27,14 @@ export default function NavBar() {
             ):(
               <NavLink className='navbarContainer__link' to='/login'>login</NavLink>
         )}
+        {currentUserId === 666 ? (
+          <NavLink className='navbarContainer__link' to='/admin'>admin</NavLink>
+        ):(
+          null
+        )}
+        <NavLink to='/about' className='navbarContainer__link'>about</NavLink>
+        <NavLink to='/shop' className='navbarContainer__link'>shop</NavLink>
+        <NavLink to='/contact' className='navbarContainer__link'>contact</NavLink>
       </div>
     </div>
   )

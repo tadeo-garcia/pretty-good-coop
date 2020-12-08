@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink} from 'react-router-dom';
 import NavBar from '../components/Navbar';
+import NavBarMobile from '../components/NavbarMobile'
 import Dashboard from '../components/Dashboard';
+import CartTotal from '../components/CartTotal'
 
 export default function UserPage() {
+
+  const [desktop, setDesktop] = useState(window.innerWidth > 900)
+
+  const updateScreen = ()=>{
+    setDesktop(window.innerWidth>900)
+  }
+  
+  useEffect( () => {
+    window.addEventListener('resize', updateScreen)
+    return () => window.removeEventListener('resize', updateScreen)
+  })
+
 
   return (
     <>
@@ -16,9 +30,14 @@ export default function UserPage() {
           <br/>
           by tadeo garcia
         </div>
+        <CartTotal/>
         <NavLink to='/'><div className='userpageBanner__logo'/></NavLink>  
       </div>
-      <NavBar/>
+      {desktop?(
+        <NavBar/>
+      ):(
+        <NavBarMobile/>
+      )}
       <Dashboard/>
     </div>
     </>
