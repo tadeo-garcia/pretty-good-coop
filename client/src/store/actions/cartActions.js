@@ -20,9 +20,12 @@ const removeProduct = (product) => {
   }
 }
 
-export const addToCart = (id, qty) => 
+//////////////THUNKS/////////////////////
+
+
+export const addToCart = (product) => 
   async (dispatch, getState) => {
-    dispatch()
+    dispatch(addProduct(product))
   
 	// dispatch({
 	// 	type: CART_ADD_ITEM,
