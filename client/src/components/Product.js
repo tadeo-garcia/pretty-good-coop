@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../store/actions/cartActions';
 
-export default function Product(product){
+export default function Product(product, handleAddToCart){
   let singleProduct = product.product;
  
   return(
@@ -10,11 +9,11 @@ export default function Product(product){
       <div className="productWrapper">
         <img src={singleProduct.imageUrl} 
         className="productImage" alt='product'/>
-        <Link to='/cart'  
-        onClick={()=>{console.log(singleProduct.description, singleProduct.price)}}  
+        <button  
+        onClick={()=>handleAddToCart(singleProduct)}  
         className="productImage__link productImage__link-animate">
           add to cart
-        </Link>
+        </button>
         <div className="productDescription">
           {singleProduct.description}
         </div >

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector,  useDispatch } from 'react-redux';
 import { loadProducts } from '../store/actions/productActions';
-
-
+import { addToCart } from '../store/actions/cartActions';
 import Product from "./Product";
 import AdminProduct from "./AdminProduct";
 
@@ -21,7 +20,10 @@ export default function ProductDisplay(){
     adminDisplay = true
   }
 
-  
+  const handleAddToCart = (product) => {
+    // dispatch(addToCart(product))
+    console.log(product)
+  }
 
   if(!products)return null;
   let productsArray = Array.from(products);
@@ -40,7 +42,7 @@ export default function ProductDisplay(){
         <div className="displayGrid__users">
         {productsArray.map((product, idx) =>{
           return(
-            <Product product={product} key={idx}/>
+            <Product handleAddToCart={handleAddToCart} product={product} key={idx}/>
           )
         })}
         </div>
