@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../store/actions/cartActions';
 
 export default function Product(product){
   let singleProduct = product.product;

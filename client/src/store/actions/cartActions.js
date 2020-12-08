@@ -1,12 +1,28 @@
 import axios from 'axios';
 
-const CART_ADD_ITEM = 'CART_ADD_ITEM';
-const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM';
+const CART_ADD_PRODUCT = 'CART_ADD_PRODUCT';
+const CART_REMOVE_PRODUCT = 'CART_REMOVE_PRODUCT';
 const CART_SAVE_SHIPPING_ADDRESS = 'CART_SAVE_SHIPPING_ADDRESS';
 const CART_SAVE_PAYMENT_METHOD = 'CART_SAVE_PAYMENT_METHOD';
 
-export const addToCart = (id, qty) => async (dispatch, getState) => {
-  
+//////////////ACTIONS/////////////////////
+const addProduct = (product) => {
+  return{
+    type: CART_ADD_PRODUCT,
+    product
+  }
+}
+
+const removeProduct = (product) => {
+  return{
+    type: CART_REMOVE_PRODUCT,
+    product
+  }
+}
+
+export const addToCart = (id, qty) => 
+  async (dispatch, getState) => {
+    dispatch()
   
 	// dispatch({
 	// 	type: CART_ADD_ITEM,
@@ -25,7 +41,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 
 export const removeFromCart = (id) => (dispatch, getState) => {
 	dispatch({
-		type: CART_REMOVE_ITEM,
+		type: CART_REMOVE_PRODUCT,
 		payload: id
 	});
 
