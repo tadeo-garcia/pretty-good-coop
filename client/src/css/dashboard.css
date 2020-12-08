@@ -1,3 +1,14 @@
+.dashboardWrapper {
+  height: 100%;
+  width: 100%;
+}
+#dashboard__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 900px) {
   #dashboard__content {
     display: flex;
