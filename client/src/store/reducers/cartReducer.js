@@ -11,21 +11,22 @@ export const cartReducer = (
 ) => {
 	switch (action.type) {
 		case CART_ADD_PRODUCT:
-			const item = action.product;
-      console.log(item)
-			const existItem = state.cartItems.find(x => x.product === item.product);
+      const item = action.product;
+      return{...state, cartItems:[...state.cartItems,item]}
+  
+			// const existItem = state.cartItems.find(x => x.product === item.product);
 
-			if (existItem) {
-				return {
-					...state,
-					cartItems: state.cartItems.map(x => x.product === existItem.product ? item : x)
-				}
-			} else {
-				return {
-					...state,
-					cartItems: [...state.cartItems, item]
-				}
-			}
+			// if (existItem) {
+			// 	return {
+			// 		...state,
+			// 		cartItems: state.cartItems.map(x => x.product === existItem.product ? item : x)
+			// 	}
+			// } else {
+			// 	return {
+			// 		...state,
+			// 		cartItems: [...state.cartItems, item]
+			// 	}
+			// }
 
 		case CART_REMOVE_PRODUCT:
 			return {
