@@ -1,9 +1,12 @@
 import axios from 'axios';
 
-const CART_ADD_PRODUCT = 'CART_ADD_PRODUCT';
-const CART_REMOVE_PRODUCT = 'CART_REMOVE_PRODUCT';
-const CART_SAVE_SHIPPING_ADDRESS = 'CART_SAVE_SHIPPING_ADDRESS';
-const CART_SAVE_PAYMENT_METHOD = 'CART_SAVE_PAYMENT_METHOD';
+import {
+  CART_LOAD_PRODUCTS,
+	CART_ADD_PRODUCT,
+	CART_REMOVE_PRODUCT,
+	CART_SAVE_SHIPPING_ADDRESS,
+	CART_SAVE_PAYMENT_METHOD
+} from '../constants/cartConstants';
 
 //////////////ACTIONS/////////////////////
 const addProduct = (product) => {
