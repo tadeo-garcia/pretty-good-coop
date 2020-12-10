@@ -42,3 +42,21 @@
   padding: 5px;
   text-decoration: none;
 }
+
+@media (max-width: 900px) {
+  .cartItemWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-items: center; */
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    width: 325px;
+    height: 150px;
+    /* position: relative; */
+    /* overflow: hidden; */
+    border: 3px solid black;
+  }
+}

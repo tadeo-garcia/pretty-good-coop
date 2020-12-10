@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem'
 import { loadCart } from '../store/actions/cartActions';
 
-export default function Cart(){
+export default function Cart(props){
+  console.log(props)
   const dispatch = useDispatch();
   const cartItems = useSelector(state=>state.cart.cartItems);
   const subtotal = useSelector(state=>state.cart.subTotal);

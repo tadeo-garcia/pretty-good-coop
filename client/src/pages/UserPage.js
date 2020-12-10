@@ -18,7 +18,6 @@ export default function UserPage() {
     return () => window.removeEventListener('resize', updateScreen)
   })
 
-
   return (
     <>
     <div className='userpageContainer'>
@@ -38,7 +37,7 @@ export default function UserPage() {
       ):(
         <NavBarMobile/>
       )}
-      <Dashboard/>
+      <Dashboard desktop={desktop}/>
     </div>
     </>
   )
