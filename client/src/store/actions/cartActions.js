@@ -9,6 +9,12 @@ import {
 } from '../constants/cartConstants';
 
 //////////////ACTIONS/////////////////////
+const loadCart = () => {
+  return{
+    type: CART_LOAD_PRODUCTS
+  }
+}
+
 const addProduct = (product) => {
   return{
     type: CART_ADD_PRODUCT,
@@ -24,7 +30,11 @@ const removeProduct = (product) => {
 }
 
 //////////////THUNKS/////////////////////
-
+export const loadCartItems = () => {
+  return async (dispatch) => {
+    dispatch(loadCart())
+  }
+}
 
 export const addToCart = (product) => {
   return async (dispatch, getState) => {
