@@ -12,7 +12,6 @@ export const cartReducer = (
 ) => {
 	switch (action.type) {
     case CART_LOAD_PRODUCTS:
-      console.log(state.cartItems)
       return {...state, cartItems: state.cartItems}
 		case CART_ADD_PRODUCT:
       const item = action.product;
