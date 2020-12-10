@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {
-  CART_LOAD_PRODUCTS,
+  CART_LOAD,
 	CART_ADD_PRODUCT,
 	CART_REMOVE_PRODUCT,
 	CART_SAVE_SHIPPING_ADDRESS,
@@ -11,7 +11,7 @@ import {
 //////////////ACTIONS/////////////////////
 const loadCart = () => {
   return{
-    type: CART_LOAD_PRODUCTS
+    type: CART_LOAD
   }
 }
 

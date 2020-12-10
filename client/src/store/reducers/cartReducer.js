@@ -1,5 +1,5 @@
 import {
-  CART_LOAD_PRODUCTS,
+  CART_LOAD,
 	CART_ADD_PRODUCT,
 	CART_REMOVE_PRODUCT,
 	CART_SAVE_SHIPPING_ADDRESS,
@@ -7,12 +7,17 @@ import {
 } from '../constants/cartConstants';
 
 export const cartReducer = (
-	state = { cartItems: [] },
+	state = { cartItems: [], subTotal: 0 },
 	action
 ) => {
 	switch (action.type) {
-    case CART_LOAD_PRODUCTS:
-      return {...state, cartItems: state.cartItems}
+    case CART_LOAD:
+      if (state.cartItems.length===0) return {...state}
+      let subTotal = state.cartItems.map(item=>{
+        return item.price
+      }).reduce((prev,next)=> prev + next)
+
+      return {...state, cartItems: state.cartItems, subTotal: subTotal}
 		case CART_ADD_PRODUCT:
       const item = action.product;
       return{...state, cartItems:[...state.cartItems,item]}

@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem'
 import { loadCartItems } from '../store/actions/cartActions';
 
 export default function Cart(){
   const dispatch = useDispatch();
-  const cartItems =useSelector(state=>state.cart.cartItems)
+  const cartItems = useSelector(state=>state.cart.cartItems);
+  const [subTotal, setSubTotal] = useState(null);
+
 
    useEffect(()=>{
      dispatch(loadCartItems())
     }, [dispatch])
-    
     
   if(!cartItems) return null;
   
