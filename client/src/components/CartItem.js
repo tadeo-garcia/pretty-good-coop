@@ -9,13 +9,9 @@ export default function CartItem(product){
       <div className="cartItemWrapper">
         <img src={singlecartItem.imageUrl} 
         className="cartItemImage" alt='cartItem'/>
-        <Link to='/cart'  
-        onClick={()=>{console.log(singlecartItem.description, singlecartItem.price)}}  
-        className="cartItemImage__link cartItemImage__link-animate">
-          add to cart
-        </Link>
         <div className="cartItemDescription">
           {singlecartItem.description}
+          <button className="cartItemRemove">remove item</button>
         </div >
         <div className="cartItemPrice">
           ${Math.round((singlecartItem.price * 100)/100).toFixed(2)}
