@@ -36,7 +36,7 @@ export default function Cart(){
           subtotal: {subtotal}
         </div>
         <div className="cartTotals__shipping">
-          shipping: { shipping ? (
+          shipping: { shipping === null ? (
             0.00
           ):(
             shipping
