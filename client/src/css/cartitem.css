@@ -42,16 +42,3 @@
   padding: 5px;
   text-decoration: none;
 }
-
-.cartItemWrapper:hover .cartItemImage__link {
-  box-shadow: 0px 0px 0px 4px black inset;
-  padding: 5px;
-  width: 100%;
-  background-color: white;
-  color: black;
-  opacity: 1;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: underline;
-  font-weight: 700;
-}

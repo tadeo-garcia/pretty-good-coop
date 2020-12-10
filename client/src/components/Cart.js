@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem'
-import { loadCartItems } from '../store/actions/cartActions';
+import { loadCart } from '../store/actions/cartActions';
 
 export default function Cart(){
   const dispatch = useDispatch();
@@ -10,10 +10,9 @@ export default function Cart(){
   let [shipping, setShipping] = useState(null);
   let [total, setTotal] = useState(null);
 
-
-
    useEffect(()=>{
-     dispatch(loadCartItems())
+     dispatch(loadCart())
+     setShipping(cartItems.length*5)
     }, [dispatch])
     
   if(!cartItems) return null;
@@ -43,9 +42,10 @@ export default function Cart(){
           )}
         </div>
         <div className="cartTotals__total">
-          total: {total}
+          total: {subtotal+shipping}
         </div>
       </div>
     </div>
   )
 }
+
