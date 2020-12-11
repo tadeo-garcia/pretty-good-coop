@@ -5,6 +5,7 @@ import {logout} from '../store/actions/authActions'
 
 export default function NavBarMobile() {
   const currentUserId = useSelector(state => state.auth.id);
+  const cartItems = useSelector(state=>state.cart.cartItems);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
@@ -19,7 +20,13 @@ export default function NavBarMobile() {
       <div className='navbarContainer__links'> 
         {currentUserId ? (
           <>
-            <NavLink to='/cart' className='navbarContainer__link'>cart</NavLink>
+            <NavLink to='/cart' className='navbarContainer__link'>
+            cart {cartItems.length > 0 ?(
+             <span>{cartItems.length}</span> 
+            ):(
+              null
+            )}
+            </NavLink>
             <NavLink to='/account' className='navbarContainer__link'>my account</NavLink>
             <NavLink className='navbarContainer__link' 
             onClick={handleLogout} to='/'> logout</NavLink>
