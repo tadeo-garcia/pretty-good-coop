@@ -13,7 +13,7 @@ export default function CartItem(props){
       <div className="cartItemDescription">
         {singlecartItem.description}
       <div className="cartItemPrice">
-        ${Math.round((singlecartItem.price * 100)/100).toFixed(2)}
+        ${((singlecartItem.price * 100)/100).toFixed(2)}
       </div>
         <button 
         className="cartItemRemove"

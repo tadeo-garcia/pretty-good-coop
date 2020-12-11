@@ -13,8 +13,6 @@ export default function NavBar() {
     dispatch(logout());
   };
 
-  console.log(cartItems.length)
-
   return (
     <div className='navbarContainer'>
       <div className='navbarContainer__links'> 

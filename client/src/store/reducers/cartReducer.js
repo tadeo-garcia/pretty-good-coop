@@ -13,11 +13,9 @@ export const cartReducer = (
       if (state.cartItems.length===0) return {...state}
       let shipping = 0;
       let subTotal = state.cartItems.map(item=>{
-        shipping+=5
+        shipping+=7.50
         return item.price
       }).reduce((prev,next)=> prev + next)
-
-      console.log(shipping)
 
       return {...state, cartItems: state.cartItems, subTotal: subTotal, shipping: shipping}
 		case CART_ADD_PRODUCT:
@@ -37,7 +35,7 @@ export const cartReducer = (
 
       if(newCart.length>0){
         subTotalRemoved = newCart.map(item=>{
-          shippingRemoved += 5
+          shippingRemoved += 7.50
           return item.price
         }).reduce((prev,next)=> prev + next)
       }
