@@ -19,10 +19,10 @@ export default function Product(props){
         </button>
         <div className="productDescription">
           {singleProduct.description}
-        </div >
+        </div>
         <div className="productPrice">
           ${Math.round((singleProduct.price * 100)/100).toFixed(2)}
-        </div >
+        </div>
       </div>
     </>
   )
