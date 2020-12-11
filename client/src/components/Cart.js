@@ -44,7 +44,7 @@ export default function Cart({desktop}){
                 )}
             </div>
             <div className="cartTotals__total">
-              total: {subtotal+shipping}
+              total: ${(subtotal+shipping)}
             </div>
           </div>
         </>
