@@ -7,12 +7,13 @@ export default function Cart({desktop}){
   const dispatch = useDispatch();
   const cartItems = useSelector(state=>state.cart.cartItems);
   const subtotal = useSelector(state=>state.cart.subTotal);
-  let [shipping, setShipping] = useState(null);
+  const shipping = useSelector(state=>state.cart.shipping)
+  // let [shipping, setShipping] = useState(null);
   let [total, setTotal] = useState(null);
 
   useEffect(()=>{
      dispatch(loadCart())
-     setShipping(cartItems.length*5)
+    //  setShipping(cartItems.length*5)
     }, [dispatch])
   
   const handleRemoveFromCart = (idx) => {

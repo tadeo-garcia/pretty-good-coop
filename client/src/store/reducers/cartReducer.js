@@ -5,17 +5,21 @@ import {
 } from '../constants/cartConstants';
 
 export const cartReducer = (
-	state = { cartItems: [], subTotal: 0 },
+	state = { cartItems: [], subTotal: 0, shipping: 0 },
 	action
 ) => {
 	switch (action.type) {
     case CART_LOAD:
       if (state.cartItems.length===0) return {...state}
+      let shipping = 0;
       let subTotal = state.cartItems.map(item=>{
+        shipping+=5
         return item.price
       }).reduce((prev,next)=> prev + next)
 
-      return {...state, cartItems: state.cartItems, subTotal: subTotal}
+      console.log(shipping)
+
+      return {...state, cartItems: state.cartItems, subTotal: subTotal, shipping: shipping}
 		case CART_ADD_PRODUCT:
       const item = action.product;
       return{...state, cartItems:[...state.cartItems,item]}
@@ -29,14 +33,16 @@ export const cartReducer = (
       }
 
       let subTotalRemoved = 0;
+      let shippingRemoved = 0;
 
       if(newCart.length>0){
         subTotalRemoved = newCart.map(item=>{
+          shippingRemoved += 5
           return item.price
         }).reduce((prev,next)=> prev + next)
       }
 
-			return {...state,cartItems: newCart, subTotal: subTotalRemoved}
+			return {...state,cartItems: newCart, subTotal: subTotalRemoved, shipping: shippingRemoved}
 		default:
 			return state
 	}
