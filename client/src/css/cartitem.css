@@ -7,7 +7,7 @@
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 25px;
-  width: 500px;
+  min-width: 500px;
   height: 150px;
   /* position: relative; */
   /* overflow: hidden; */
@@ -21,6 +21,9 @@
 }
 
 .cartItemDescription {
+  /* max-width: 450px; */
+  padding-left: 25px;
+  padding-right: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +55,8 @@
     margin-top: 20px;
     margin-right: 20px;
     margin-left: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
+    min-width: 325px;
     width: 325px;
     height: 150px;
     /* position: relative; */
