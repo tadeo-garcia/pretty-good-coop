@@ -21,7 +21,6 @@ export const cartReducer = (
       return{...state, cartItems:[...state.cartItems,item]}
 		case CART_REMOVE_PRODUCT:
       const idx = action.idx;
-
       let newCart = [];
       for(let i =0;i<state.cartItems.length;i++){
         if(i!== idx){
@@ -29,12 +28,15 @@ export const cartReducer = (
         }
       }
 
-      console.log(newCart)
+      let subTotalRemoved = 0;
 
-			return {
-				...state,
-				cartItems: newCart
-			}
+      if(newCart.length>0){
+        subTotalRemoved = newCart.map(item=>{
+          return item.price
+        }).reduce((prev,next)=> prev + next)
+      }
+
+			return {...state,cartItems: newCart, subTotal: subTotalRemoved}
 		default:
 			return state
 	}
