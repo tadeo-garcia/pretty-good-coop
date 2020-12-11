@@ -20,9 +20,20 @@ export const cartReducer = (
       const item = action.product;
       return{...state, cartItems:[...state.cartItems,item]}
 		case CART_REMOVE_PRODUCT:
+      const idx = action.idx;
+
+      let newCart = [];
+      for(let i =0;i<state.cartItems.length;i++){
+        if(i!== idx){
+          newCart.push(state.cartItems[i])
+        }
+      }
+
+      console.log(newCart)
+
 			return {
 				...state,
-				cartItems: state.cartItems.filter(x => x.product !== action.payload)
+				cartItems: newCart
 			}
 		default:
 			return state

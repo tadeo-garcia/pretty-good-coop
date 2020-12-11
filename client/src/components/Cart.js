@@ -15,8 +15,9 @@ export default function Cart({desktop}){
      setShipping(cartItems.length*5)
     }, [dispatch])
   
-  const handleRemoveFromCart = (product) => {
-    dispatch(removeFromCart(product))
+  const handleRemoveFromCart = (idx) => {
+    dispatch(removeFromCart(idx))
+    // console.log(product)
   }
 
   if(!cartItems) return null;
@@ -31,7 +32,12 @@ export default function Cart({desktop}){
                 ):(
                   cartItems.map((product, idx)=>{
                     return(
-                      <CartItem product={product} key={idx}/>
+                      <CartItem 
+                        handleRemoveFromCart={handleRemoveFromCart}
+                        product={product} 
+                        key={idx} 
+                        idx={idx}
+                      />
                     )
                   })
                 )}
@@ -60,7 +66,12 @@ export default function Cart({desktop}){
                 ):(
                   cartItems.map((product, idx)=>{
                     return(
-                      <CartItem product={product} key={idx} desktop={desktop}/>
+                      <CartItem 
+                        product={product} 
+                        key={idx}
+                        idx={idx}
+                        handleRemove={handleRemoveFromCart} 
+                      />
                     )
                   })
                 )}

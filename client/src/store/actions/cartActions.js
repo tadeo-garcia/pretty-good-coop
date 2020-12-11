@@ -20,10 +20,10 @@ const addProduct = (product) => {
   }
 }
 
-const removeProduct = (product) => {
+const removeProduct = (idx) => {
   return{
     type: CART_REMOVE_PRODUCT,
-    product
+    idx
   }
 }
 
@@ -41,10 +41,10 @@ export const addToCart = (product) => {
 }
   
 
-export const removeFromCart = (product) =>{
+export const removeFromCart = (idx) =>{
   return async(dispatch)=> {
-  	dispatch(removeProduct(product));
+    console.log(idx)
+  	dispatch(removeProduct(idx));
   }
-	// localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 }
 
