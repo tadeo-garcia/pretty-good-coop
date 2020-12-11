@@ -3,13 +3,11 @@ import axios from 'axios';
 import {
   CART_LOAD,
 	CART_ADD_PRODUCT,
-	CART_REMOVE_PRODUCT,
-	CART_SAVE_SHIPPING_ADDRESS,
-	CART_SAVE_PAYMENT_METHOD
+	CART_REMOVE_PRODUCT
 } from '../constants/cartConstants';
 
 //////////////ACTIONS/////////////////////
-const loadCart = () => {
+const loadCartData = () => {
   return{
     type: CART_LOAD
   }
@@ -22,64 +20,31 @@ const addProduct = (product) => {
   }
 }
 
-const removeProduct = (product) => {
+const removeProduct = (idx) => {
   return{
     type: CART_REMOVE_PRODUCT,
-    product
+    idx
   }
 }
 
 //////////////THUNKS/////////////////////
-export const loadCartItems = () => {
+export const loadCart = () => {
   return async (dispatch) => {
-    dispatch(loadCart())
+    dispatch(loadCartData())
   }
 }
 
 export const addToCart = (product) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     dispatch(addProduct(product))
-  
-	// dispatch({
-	// 	type: CART_ADD_ITEM,
-	// 	payload: {
-	// 		product: data._id,
-	// 		name: data.name,
-	// 		image: data.image,
-	// 		price: data.price,
-	// 		countInStock: data.countInStock,
-	// 		qty
-	// 	}
-	// });
-
-	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
   }
 }
   
 
-export const removeFromCart = (id) => (dispatch, getState) => {
-	dispatch({
-		type: CART_REMOVE_PRODUCT,
-		payload: id
-	});
-
-	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+export const removeFromCart = (idx) =>{
+  return async(dispatch)=> {
+    console.log(idx)
+  	dispatch(removeProduct(idx));
+  }
 }
 
-// export const saveShippingAddress = (data) => (dispatch) => {
-// 	dispatch({
-// 		type: CART_SAVE_SHIPPING_ADDRESS,
-// 		payload: data
-// 	});
-
-// 	localStorage.setItem('shippingAddress', JSON.stringify(data));
-// }
-
-// export const savePaymentMethod = (data) => (dispatch) => {
-// 	dispatch({
-// 		type: CART_SAVE_PAYMENT_METHOD,
-// 		payload: data
-// 	});
-
-// 	localStorage.setItem('paymentMethod', JSON.stringify(data));
-// }

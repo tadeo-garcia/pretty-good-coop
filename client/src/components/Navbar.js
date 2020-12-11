@@ -1,18 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import {logout} from '../store/actions/authActions'
+import {logout} from '../store/actions/authActions';
 
 export default function NavBar() {
   const currentUserId = useSelector(state => state.auth.id);
+  const cartItems = useSelector(state=>state.cart.cartItems);
   const dispatch = useDispatch();
 
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
   };
-
-
 
   return (
     <div className='navbarContainer'>
@@ -27,7 +26,13 @@ export default function NavBar() {
         <NavLink to='/contact' className='navbarContainer__link'>contact</NavLink>
         {currentUserId ? (
           <>
-            <NavLink to='/cart' className='navbarContainer__link'>cart</NavLink>
+            <NavLink to='/cart' className='navbarContainer__link'>
+            cart {cartItems.length > 0 ?(
+             <span>{cartItems.length}</span> 
+            ):(
+              null
+            )}
+            </NavLink>
             <NavLink to='/account' className='navbarContainer__link'>my account</NavLink>
             <NavLink className='navbarContainer__link' 
             onClick={handleLogout} to='/'> logout</NavLink>

@@ -3,7 +3,6 @@ import { NavLink} from 'react-router-dom';
 import NavBar from '../components/Navbar';
 import NavBarMobile from '../components/NavbarMobile'
 import Dashboard from '../components/Dashboard';
-import CartTotal from '../components/CartTotal'
 
 export default function UserPage() {
 
@@ -18,7 +17,6 @@ export default function UserPage() {
     return () => window.removeEventListener('resize', updateScreen)
   })
 
-
   return (
     <>
     <div className='userpageContainer'>
@@ -30,7 +28,6 @@ export default function UserPage() {
           <br/>
           by tadeo garcia
         </div>
-        <CartTotal/>
         <NavLink to='/'><div className='userpageBanner__logo'/></NavLink>  
       </div>
       {desktop?(
@@ -38,7 +35,7 @@ export default function UserPage() {
       ):(
         <NavBarMobile/>
       )}
-      <Dashboard/>
+      <Dashboard desktop={desktop}/>
     </div>
     </>
   )
