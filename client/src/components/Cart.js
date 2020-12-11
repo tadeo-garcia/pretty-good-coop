@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem'
-import { loadCart } from '../store/actions/cartActions';
+import { loadCart, removeFromCart } from '../store/actions/cartActions';
 
 export default function Cart({desktop}){
   const dispatch = useDispatch();
@@ -10,11 +10,15 @@ export default function Cart({desktop}){
   let [shipping, setShipping] = useState(null);
   let [total, setTotal] = useState(null);
 
-   useEffect(()=>{
+  useEffect(()=>{
      dispatch(loadCart())
      setShipping(cartItems.length*5)
     }, [dispatch])
-    
+  
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product))
+  }
+
   if(!cartItems) return null;
   
   return(

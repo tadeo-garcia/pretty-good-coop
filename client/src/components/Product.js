@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Product(props){
-  // console.log(props)
   let singleProduct = props.product;
   let handleAdd = props.handleAddToCart;
 
