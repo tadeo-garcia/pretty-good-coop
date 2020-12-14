@@ -1,0 +1,6 @@
+export const LOAD_ORDER = 'LOAD_ORDER';
+export const LOAD_ORDERS_BY_USER = 'LOAD_ORDERS_BY_USER';
+export cosnt LOAD_ORDERS_ALL = 'LOAD_ORDER_ALL'
+export const CREATE_ORDER = 'CREATE_ORDER';
+export const DELETE_ORDER = 'DELETE_ORDER';
+
