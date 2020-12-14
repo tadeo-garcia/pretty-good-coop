@@ -1,9 +1,7 @@
-import axios from 'axios';
-
 import {
   export const LOAD_ORDER = 'LOAD_ORDER';
-export const CREATE_ORDER = 'CREATE_ORDER';
-export const DELETE_ORDER = 'DELETE_ORDER';
+  export const CREATE_ORDER = 'CREATE_ORDER';
+  export const DELETE_ORDER = 'DELETE_ORDER';
 } from '../constants/orderConstants';
 
 //////////////ACTIONS/////////////////////
